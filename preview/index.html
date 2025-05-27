@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>準備中</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ファビコン -->
-  <link rel="icon" type="image/png" href="preview/images/kann favicon.png">
+  <!-- ファビコン（スペースなしで保存したものに変更） -->
+  <link rel="icon" type="image/png" href="preview/images/kann-favicon.png">
   <style>
     body {
       font-family: sans-serif;
@@ -14,7 +14,6 @@
       color: #555;
     }
 
-    /* ヘッダー */
     .header {
       display: flex;
       justify-content: space-between;
@@ -32,7 +31,6 @@
       margin: 0;
     }
 
-    /* ハンバーガーメニュー */
     .menu-btn {
       font-size: 1.5rem;
       background: none;
@@ -40,7 +38,6 @@
       cursor: pointer;
     }
 
-    /* メニュー本体 */
     .side-menu {
       position: fixed;
       top: 0;
@@ -90,21 +87,15 @@
 </head>
 <body>
 
-  <!-- ヘッダー -->
   <div class="header">
     <h1>Kannkann企画</h1>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 
-  <!-- サイドメニュー -->
   <nav id="menu" class="side-menu">
     <a href="message.html">📨 メッセージ一覧</a>
-    <!-- 他のページができたら追加 -->
-    <!-- <a href="#">🎨 イラスト一覧</a> -->
-    <!-- <a href="#">📅 スケジュール</a> -->
   </nav>
 
-  <!-- メイン内容 -->
   <div class="container">
     <img src="preview/images/test-main.png" alt="メイン画像" class="main-image">
     <div class="main-text">
@@ -113,7 +104,6 @@
     </div>
   </div>
 
-  <!-- JavaScript -->
   <script>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('open');
