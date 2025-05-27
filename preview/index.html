@@ -2,46 +2,72 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>準備中</title>
+  <title>ハンバーガーメニュー</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
-      background-color: #f8f8f8;
-      color: #555;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
 
-    h1 {
-      font-size: 6vw; 
-      margin-bottom: 1em;
+    /* メニュー全体 */
+    .side-menu {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px; /* 初期状態は非表示 */
+      background-color: #333;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
     }
 
-    p {
-      font-size: 4.5vw;
+    /* メニュー項目 */
+    .side-menu a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #f2f2f2;
+      display: block;
+      transition: 0.2s;
     }
 
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 2.5em;
-      }
-      p {
-        font-size: 1.5em;
-      }
+    .side-menu a:hover {
+      background-color: #575757;
+    }
+
+    /* ハンバーガーボタン */
+    .menu-btn {
+      font-size: 30px;
+      margin: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>🎉 サイト準備中 🎉</h1>
-  <p>11月19日 公開予定です。どうぞお楽しみに！</p>
 
-  <p><a href="preview/pages/message.html">メッセージ</a></p>
+<!-- ハンバーガーボタン -->
+<span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+<!-- メニュー本体 -->
+<div id="myMenu" class="side-menu">
+  <a href="index.html">🏠 ホーム</a>
+  <a href="preview/pages/message.html">📨 メッセージ</a>
+  <!-- 他のページも追加可能 -->
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("myMenu");
+    if (menu.style.left === "0px") {
+      menu.style.left = "-250px";
+    } else {
+      menu.style.left = "0px";
+    }
+  }
+</script>
+
 </body>
 </html>
