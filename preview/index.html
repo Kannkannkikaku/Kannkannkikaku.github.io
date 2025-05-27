@@ -2,62 +2,89 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ハンバーガーメニュー</title>
+  <title>Kannkannkikaku</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="kann_favicon.png">
   <style>
     body {
-      font-family: sans-serif;
       margin: 0;
-      padding: 0;
-    }
-
-    /* メニュー全体 */
-    .side-menu {
-      height: 100%;
-      width: 250px;
-      position: fixed;
-      top: 0;
-      left: -250px; /* 初期状態は非表示 */
-      background-color: #333;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
-    }
-
-    /* メニュー項目 */
-    .side-menu a {
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 18px;
-      color: #f2f2f2;
-      display: block;
-      transition: 0.2s;
-    }
-
-    .side-menu a:hover {
-      background-color: #575757;
+      font-family: sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
     }
 
     /* ハンバーガーボタン */
     .menu-btn {
       font-size: 30px;
-      margin: 10px;
+      padding: 15px;
       cursor: pointer;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1001;
+      background-color: transparent;
+      border: none;
+      color: #333;
+    }
+
+    /* スライドメニュー本体 */
+    .side-menu {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #444;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .side-menu a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #fff;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .side-menu a:hover {
+      background-color: #666;
+    }
+
+    /* 中央コンテンツ */
+    .main-content {
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .main-image {
+      max-width: 80%;
+      height: auto;
     }
   </style>
 </head>
 <body>
 
-<!-- ハンバーガーボタン -->
-<span class="menu-btn" onclick="toggleMenu()">☰</span>
+<!-- ☰ ボタン -->
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<!-- メニュー本体 -->
+<!-- スライドメニュー -->
 <div id="myMenu" class="side-menu">
   <a href="index.html">🏠 ホーム</a>
   <a href="pages/message.html">📨 メッセージ</a>
-  <!-- 他のページも追加可能 -->
+  <!-- 他のリンクも追加できます -->
 </div>
 
+<!-- メインコンテンツ -->
+<div class="main-content">
+  <img src="main_image.png" alt="メインイラスト" class="main-image">
+  <p>11月19日 公開予定です。どうぞお楽しみに！</p>
+</div>
+
+<!-- メニュー開閉スクリプト -->
 <script>
   function toggleMenu() {
     const menu = document.getElementById("myMenu");
