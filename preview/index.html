@@ -41,7 +41,7 @@
     .side-menu {
       position: fixed;
       top: 0;
-      right: -250px;
+      right: -250px; /* ← 初期状態で非表示 */
       width: 250px;
       height: 100%;
       background-color: #fff;
@@ -60,7 +60,7 @@
     }
 
     .side-menu.open {
-      right: 0;
+      right: 0; /* ← クラスが付いたら表示される */
     }
 
     .container {
@@ -108,6 +108,11 @@
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('open');
     }
+
+    // ページ読み込み時にメニューを必ず閉じておく
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('menu').classList.remove('open');
+    });
   </script>
 
 </body>
