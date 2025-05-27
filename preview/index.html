@@ -3,19 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <title>準備中</title>
-  <!-- ファビコン設定 -->
-  <link rel="icon" type="image/png" href="preview/images/kann-favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ファビコン -->
+  <link rel="icon" type="image/png" href="preview/images/kann favicon.png">
   <style>
     body {
       font-family: sans-serif;
-      text-align: center;
+      margin: 0;
       background-color: #f8f8f8;
       color: #555;
+    }
+
+    /* ヘッダー */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
       margin: 0;
-      padding: 0;
+    }
+
+    /* ハンバーガーメニュー */
+    .menu-btn {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* メニュー本体 */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+      padding: 60px 20px;
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+
+    .side-menu a {
+      display: block;
+      margin: 15px 0;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .side-menu.open {
+      right: 0;
     }
 
     .container {
+      text-align: center;
       padding: 40px 20px;
     }
 
@@ -25,23 +77,48 @@
       margin-top: 20px;
     }
 
-    h1 {
+    .main-text h2 {
       font-size: 2rem;
       margin-top: 40px;
     }
 
-    p {
+    .main-text p {
       font-size: 1.2rem;
       margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎉 サイト準備中 🎉</h1>
-    <!-- メイン画像 -->
-    <img src="preview/images/test-main.png" alt="メイン画像" class="main-image">
-    <p>11月19日 公開予定です。どうぞお楽しみに！</p>
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <h1>Kannkann企画</h1>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
+
+  <!-- サイドメニュー -->
+  <nav id="menu" class="side-menu">
+    <a href="message.html">📨 メッセージ一覧</a>
+    <!-- 他のページができたら追加 -->
+    <!-- <a href="#">🎨 イラスト一覧</a> -->
+    <!-- <a href="#">📅 スケジュール</a> -->
+  </nav>
+
+  <!-- メイン内容 -->
+  <div class="container">
+    <img src="preview/images/test-main.png" alt="メイン画像" class="main-image">
+    <div class="main-text">
+      <h2>🎉 サイト準備中 🎉</h2>
+      <p>11月19日 公開予定です。どうぞお楽しみに！</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('open');
+    }
+  </script>
+
 </body>
 </html>
