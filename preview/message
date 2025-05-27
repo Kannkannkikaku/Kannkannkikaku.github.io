@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ファンメッセージ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .message {
+      margin-bottom: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    .message p {
+      margin: 0;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>ファンの皆さんからのメッセージ</h1>
+
+  <div class="message">
+    <p>とても素敵な活動、いつも楽しみにしています！</p>
+  </div>
+
+  <div class="message">
+    <p>これからも応援しています！</p>
+  </div>
+
+  <div class="message">
+    <p>笑顔と元気をありがとうございます！</p>
+  </div>
+
+</body>
+</html>
