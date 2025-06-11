@@ -2,50 +2,186 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ファンメッセージ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>メッセージ一覧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/kann-favicon.png">
   <style>
     body {
       font-family: sans-serif;
+      margin: 0;
+      background-color: #f8f8f8;
+      color: #555;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .header-title a {
+      text-decoration: none;
       color: #333;
-      padding: 20px;
-      margin: 0;
     }
 
-    h1 {
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .menu-btn img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 250px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+      padding: 60px 20px;
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .side-menu a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .side-menu.open {
+      right: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto 100px;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    p.message {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-links {
       text-align: center;
-      margin-bottom: 30px;
+      font-size: 0.9rem;
+      margin: 40px 0 10px;
     }
 
-    .message {
-      margin-bottom: 30px;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background-color: #f9f9f9;
+    .footer-links a {
+      margin: 0 10px;
+      color: #666;
+      text-decoration: none;
     }
 
-    .message p {
-      margin: 0;
-      line-height: 1.6;
+    .bottom-nav {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+        padding: 5px 0;
+        z-index: 1000;
+      }
+
+      .bottom-nav a img {
+        width: 28px;
+        height: 28px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>ファンの皆さんからのメッセージ</h1>
 
-  <div class="message">
-    <p>とても素敵な活動、いつも楽しみにしています！</p>
+  <div class="header">
+    <h1 class="header-title">
+      <a href="index.html">Kannkann企画</a> ＞ メッセージ
+    </h1>
+    <button class="menu-btn" onclick="toggleMenu()">
+      <img src="images/menu.png" alt="メニュー">
+    </button>
   </div>
 
-  <div class="message">
-    <p>これからも応援しています！</p>
+  <nav id="menu" class="side-menu">
+    <a href="pages/message.html"><img src="images/message.png" alt="メッセージ">メッセージ一覧</a>
+    <a href="pages/photo.html"><img src="images/photo.png" alt="写真">写真</a>
+    <a href="pages/illust.html"><img src="images/illust.png" alt="イラスト">イラスト</a>
+    <a href="pages/info.html"><img src="images/information.png" alt="インフォ">インフォメーション</a>
+    <a href="index.html"><img src="images/home.png" alt="トップ">トップページ</a>
+  </nav>
+
+  <div class="container">
+    <h2>📨 ファンの皆様からのメッセージ</h2>
+    <p class="message">・応援しています！これからも楽しみにしています！</p>
+    <p class="message">・素敵な企画ですね、完成を楽しみに待っています。</p>
+    <p class="message">・サイト公開おめでとうございます！</p>
   </div>
 
-  <div class="message">
-    <p>笑顔と元気をありがとうございます！</p>
+  <div class="footer-links">
+    <a href="pages/message.html">メッセージ</a>
+    <a href="pages/photo.html">写真</a>
+    <a href="pages/illust.html">イラスト</a>
+    <a href="pages/info.html">インフォ</a>
+    <a href="index.html">TOP</a>
   </div>
+
+  <div class="bottom-nav">
+    <a href="pages/message.html"><img src="images/message.png" alt="メッセージ"></a>
+    <a href="pages/photo.html"><img src="images/photo.png" alt="写真"></a>
+    <a href="pages/illust.html"><img src="images/illust.png" alt="イラスト"></a>
+    <a href="pages/info.html"><img src="images/information.png" alt="インフォ"></a>
+    <a href="index.html"><img src="images/home.png" alt="TOPに戻る"></a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('open');
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('menu').classList.remove('open');
+    });
+  </script>
 
 </body>
 </html>
