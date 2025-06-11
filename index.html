@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>準備中</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ファビコン（スペースなしで保存したものに変更） -->
   <link rel="icon" type="image/png" href="images/kann-favicon.png">
   <style>
     body {
@@ -41,7 +40,7 @@
     .side-menu {
       position: fixed;
       top: 0;
-      right: -300px; /* ← 初期状態で非表示 */
+      right: -300px;
       width: 250px;
       height: 100%;
       background-color: #fff;
@@ -60,7 +59,7 @@
     }
 
     .side-menu.open {
-      right: 0; /* ← クラスが付いたら表示される */
+      right: 0;
     }
 
     .container {
@@ -83,6 +82,34 @@
       font-size: 1.2rem;
       margin-top: 20px;
     }
+
+    /* ▼ スマホ下部ナビ ▼ */
+    .bottom-nav {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+        padding: 10px 0;
+        z-index: 1000;
+      }
+
+      .bottom-nav a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1rem;
+        text-align: center;
+        flex: 1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -93,6 +120,7 @@
   </div>
 
   <nav id="menu" class="side-menu">
+    <a href="index.html">🏠 ホーム</a>
     <a href="pages/message.html">📨 メッセージ一覧</a>
   </nav>
 
@@ -104,12 +132,17 @@
     </div>
   </div>
 
+  <!-- ▼ スマホ下部ナビゲーション ▼ -->
+  <div class="bottom-nav">
+    <a href="index.html">🏠<br>ホーム</a>
+    <a href="pages/message.html">📨<br>メッセージ</a>
+  </div>
+
   <script>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('open');
     }
 
-    // ページ読み込み時にメニューを必ず閉じておく
     window.addEventListener('DOMContentLoaded', function() {
       document.getElementById('menu').classList.remove('open');
     });
