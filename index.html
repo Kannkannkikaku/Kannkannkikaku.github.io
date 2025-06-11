@@ -50,23 +50,16 @@
       z-index: 999;
     }
 
+    .side-menu.open {
+      right: 0;
+    }
+
     .side-menu a {
-      display: flex;
-      align-items: center;
+      display: block;
       margin: 15px 0;
       text-decoration: none;
       color: #333;
       font-weight: bold;
-    }
-
-    .side-menu a img {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-    }
-
-    .side-menu.open {
-      right: 0;
     }
 
     .container {
@@ -90,7 +83,6 @@
       margin-top: 20px;
     }
 
-    /* ▼ スマホ用下部ナビ ▼ */
     .bottom-nav {
       display: none;
     }
@@ -99,71 +91,68 @@
       .bottom-nav {
         display: flex;
         justify-content: space-around;
-        align-items: center;
         position: fixed;
         bottom: 0;
+        left: 0;
         width: 100%;
         background-color: #fff;
         border-top: 1px solid #ccc;
-        padding: 5px 0;
         z-index: 1000;
       }
 
       .bottom-nav a {
         flex: 1;
+        padding: 10px 0;
+        text-align: center;
         text-decoration: none;
         color: #333;
-        font-size: 0.75rem;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        font-size: 0.8rem;
       }
 
       .bottom-nav img {
+        display: block;
+        margin: 0 auto 5px;
+        width: 24px;
         height: 24px;
-        margin-bottom: 2px;
       }
     }
 
-    /* ▼ PC用ホームボタン ▼ */
-    .pc-home-link {
-      display: none;
+    .top-link {
       text-align: center;
-      margin: 40px 0;
+      margin: 40px 0 100px;
     }
 
-    .pc-home-link a {
+    .top-link a {
       text-decoration: none;
       background-color: #e0e0e0;
       color: #333;
       padding: 10px 20px;
       border-radius: 8px;
       font-weight: bold;
-    }
-
-    @media (min-width: 769px) {
-      .pc-home-link {
-        display: block;
-      }
+      display: inline-block;
     }
   </style>
 </head>
 <body>
+
+  <!-- ★ アンカー -->
+  <div id="top"></div>
 
   <div class="header">
     <h1>Kannkann企画</h1>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 
-  <!-- スライドメニュー（PC） -->
+  <!-- サイドメニュー（PC） -->
   <nav id="menu" class="side-menu">
-    <a href="pages/message.html"><img src="images/message.png" alt="メッセージ">メッセージ</a>
-    <a href="#"><img src="images/photo.png" alt="写真">写真</a>
-    <a href="#"><img src="images/illust.png" alt="イラスト">イラスト</a>
-    <a href="#"><img src="images/information.png" alt="インフォメーション">インフォメーション</a>
+    <a href="pages/message.html">📨 メッセージ一覧</a>
+    <a href="#">📷 写真</a>
+    <a href="#">🎨 イラスト</a>
+    <a href="#">ℹ️ インフォメーション</a>
+    <a href="index.html">🏠 ホーム</a>
   </nav>
 
+  <!-- メインコンテンツ -->
   <div class="container">
     <img src="images/test-main.png" alt="メイン画像" class="main-image">
     <div class="main-text">
@@ -172,7 +161,12 @@
     </div>
   </div>
 
-  <!-- スマホ用下部ナビ -->
+  <!-- TOPに戻る -->
+  <div class="top-link">
+    <a href="#top">↑ TOPに戻る</a>
+  </div>
+
+  <!-- スマホ用ナビ -->
   <div class="bottom-nav">
     <a href="pages/message.html">
       <img src="images/message.png" alt="メッセージ">
@@ -187,14 +181,13 @@
       イラスト
     </a>
     <a href="#">
-      <img src="images/information.png" alt="インフォメーション">
+      <img src="images/information.png" alt="インフォ">
       インフォ
     </a>
-  </div>
-
-  <!-- PC用「ホームに戻る」ボタン -->
-  <div class="pc-home-link">
-    <a href="index.html">🏠 ホームに戻る</a>
+    <a href="index.html">
+      <img src="images/home.png" alt="ホーム">
+      ホーム
+    </a>
   </div>
 
   <script>
@@ -202,7 +195,7 @@
       document.getElementById('menu').classList.toggle('open');
     }
 
-    window.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('DOMContentLoaded', function () {
       document.getElementById('menu').classList.remove('open');
     });
   </script>
