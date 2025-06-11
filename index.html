@@ -98,16 +98,24 @@
         width: 100%;
         background-color: #fff;
         border-top: 1px solid #ccc;
-        padding: 10px 0;
+        padding: 5px 0;
         z-index: 1000;
       }
 
       .bottom-nav a {
+        flex: 1;
         text-decoration: none;
         color: #333;
-        font-size: 1rem;
+        font-size: 0.75rem;
         text-align: center;
-        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .bottom-nav img {
+        height: 24px;
+        margin-bottom: 2px;
       }
     }
   </style>
@@ -120,8 +128,10 @@
   </div>
 
   <nav id="menu" class="side-menu">
-    <a href="index.html">🏠 ホーム</a>
     <a href="pages/message.html">📨 メッセージ一覧</a>
+    <a href="#">🖼 写真</a>
+    <a href="#">🎨 イラスト</a>
+    <a href="#">📢 インフォメーション</a>
   </nav>
 
   <div class="container">
@@ -132,10 +142,24 @@
     </div>
   </div>
 
-  <!-- ▼ スマホ下部ナビゲーション ▼ -->
+  <!-- ▼ スマホ用下部ナビ ▼ -->
   <div class="bottom-nav">
-    <a href="index.html">🏠<br>ホーム</a>
-    <a href="pages/message.html">📨<br>メッセージ</a>
+    <a href="pages/message.html">
+      <img src="images/message.png" alt="メッセージ">
+      メッセージ
+    </a>
+    <a href="#">
+      <img src="images/photo.png" alt="写真">
+      写真
+    </a>
+    <a href="#">
+      <img src="images/illust.png" alt="イラスト">
+      イラスト
+    </a>
+    <a href="#">
+      <img src="images/information.png" alt="インフォメーション">
+      インフォ
+    </a>
   </div>
 
   <script>
