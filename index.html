@@ -25,9 +25,11 @@
       z-index: 1000;
     }
 
-    .header h1 {
+    .header a.logo {
       font-size: 1.5rem;
-      margin: 0;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
     }
 
     .menu-btn {
@@ -126,7 +128,7 @@
 
     .top-link {
       text-align: center;
-      margin: 40px 0 100px;
+      margin: 40px 0 10px;
     }
 
     .top-link a {
@@ -138,19 +140,27 @@
       font-weight: bold;
       display: inline-block;
     }
+
+    .footer-links {
+      text-align: center;
+      font-size: 0.8rem;
+      margin-bottom: 120px;
+    }
+
+    .footer-links a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: #666;
+    }
   </style>
 </head>
 <body>
 
-  <!-- ★ アンカー -->
-  <div id="top"></div>
-
   <div class="header">
-    <h1>Kannkann企画</h1>
+    <a href="index.html" class="logo">Kannkann企画</a>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 
-  <!-- サイドメニュー（PC） -->
   <nav id="menu" class="side-menu">
     <a href="pages/message.html"><img src="images/message.png" alt="メッセージ">メッセージ</a>
     <a href="#"><img src="images/photo.png" alt="写真">写真</a>
@@ -159,7 +169,6 @@
     <a href="index.html"><img src="images/home.png" alt="ホーム">ホーム</a>
   </nav>
 
-  <!-- メインコンテンツ -->
   <div class="container">
     <img src="images/test-main.png" alt="メイン画像" class="main-image">
     <div class="main-text">
@@ -168,12 +177,21 @@
     </div>
   </div>
 
-  <!-- TOPに戻る -->
+  <!-- TOPに戻るボタン（index.html読み込み） -->
   <div class="top-link">
-    <a href="#top">↑ TOPに戻る</a>
+    <a href="index.html">↑ TOPに戻る</a>
   </div>
 
-  <!-- スマホ用ナビ（ホームは除外） -->
+  <!-- 下部テキストリンク（小さめ） -->
+  <div class="footer-links">
+    <a href="pages/message.html">メッセージ</a>｜
+    <a href="#">写真</a>｜
+    <a href="#">イラスト</a>｜
+    <a href="#">インフォメーション</a>｜
+    <a href="index.html">TOP</a>
+  </div>
+
+  <!-- スマホ用ナビ -->
   <div class="bottom-nav">
     <a href="pages/message.html">
       <img src="images/message.png" alt="メッセージ">
