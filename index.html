@@ -55,11 +55,18 @@
     }
 
     .side-menu a {
-      display: block;
+      display: flex;
+      align-items: center;
       margin: 15px 0;
       text-decoration: none;
       color: #333;
       font-weight: bold;
+    }
+
+    .side-menu a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
     }
 
     .container {
@@ -145,11 +152,11 @@
 
   <!-- サイドメニュー（PC） -->
   <nav id="menu" class="side-menu">
-    <a href="pages/message.html">📨 メッセージ一覧</a>
-    <a href="#">📷 写真</a>
-    <a href="#">🎨 イラスト</a>
-    <a href="#">ℹ️ インフォメーション</a>
-    <a href="index.html">🏠 ホーム</a>
+    <a href="pages/message.html"><img src="images/message.png" alt="メッセージ">メッセージ</a>
+    <a href="#"><img src="images/photo.png" alt="写真">写真</a>
+    <a href="#"><img src="images/illust.png" alt="イラスト">イラスト</a>
+    <a href="#"><img src="images/information.png" alt="インフォメーション">インフォメーション</a>
+    <a href="index.html"><img src="images/home.png" alt="ホーム">ホーム</a>
   </nav>
 
   <!-- メインコンテンツ -->
@@ -166,7 +173,7 @@
     <a href="#top">↑ TOPに戻る</a>
   </div>
 
-  <!-- スマホ用ナビ -->
+  <!-- スマホ用ナビ（ホームは除外） -->
   <div class="bottom-nav">
     <a href="pages/message.html">
       <img src="images/message.png" alt="メッセージ">
@@ -183,10 +190,6 @@
     <a href="#">
       <img src="images/information.png" alt="インフォ">
       インフォ
-    </a>
-    <a href="index.html">
-      <img src="images/home.png" alt="ホーム">
-      ホーム
     </a>
   </div>
 
