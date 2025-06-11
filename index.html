@@ -51,11 +51,18 @@
     }
 
     .side-menu a {
-      display: block;
+      display: flex;
+      align-items: center;
       margin: 15px 0;
       text-decoration: none;
       color: #333;
       font-weight: bold;
+    }
+
+    .side-menu a img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
     }
 
     .side-menu.open {
@@ -83,7 +90,7 @@
       margin-top: 20px;
     }
 
-    /* ▼ スマホ下部ナビ ▼ */
+    /* ▼ スマホ用下部ナビ ▼ */
     .bottom-nav {
       display: none;
     }
@@ -118,6 +125,28 @@
         margin-bottom: 2px;
       }
     }
+
+    /* ▼ PC用ホームボタン ▼ */
+    .pc-home-link {
+      display: none;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .pc-home-link a {
+      text-decoration: none;
+      background-color: #e0e0e0;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    @media (min-width: 769px) {
+      .pc-home-link {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -127,11 +156,12 @@
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 
+  <!-- スライドメニュー（PC） -->
   <nav id="menu" class="side-menu">
-    <a href="pages/message.html">📨 メッセージ一覧</a>
-    <a href="#">🖼 写真</a>
-    <a href="#">🎨 イラスト</a>
-    <a href="#">📢 インフォメーション</a>
+    <a href="pages/message.html"><img src="images/message.png" alt="メッセージ">メッセージ</a>
+    <a href="#"><img src="images/photo.png" alt="写真">写真</a>
+    <a href="#"><img src="images/illust.png" alt="イラスト">イラスト</a>
+    <a href="#"><img src="images/information.png" alt="インフォメーション">インフォメーション</a>
   </nav>
 
   <div class="container">
@@ -142,7 +172,7 @@
     </div>
   </div>
 
-  <!-- ▼ スマホ用下部ナビ ▼ -->
+  <!-- スマホ用下部ナビ -->
   <div class="bottom-nav">
     <a href="pages/message.html">
       <img src="images/message.png" alt="メッセージ">
@@ -160,6 +190,11 @@
       <img src="images/information.png" alt="インフォメーション">
       インフォ
     </a>
+  </div>
+
+  <!-- PC用「ホームに戻る」ボタン -->
+  <div class="pc-home-link">
+    <a href="index.html">🏠 ホームに戻る</a>
   </div>
 
   <script>
