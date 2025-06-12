@@ -1,135 +1,63 @@
-body {
-  font-family: sans-serif;
-  margin: 0;
-  background-color: #f8f8f8;
-  color: #555;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>メッセージ一覧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../images/kann-favicon.png">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+<body>
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+  <div class="header">
+    <h1 class="header-title">
+      <a href="../../index.html">Kannkann企画</a> ＞ メッセージ
+    </h1>
+    <button class="menu-btn" onclick="toggleMenu()">
+      <img src="../../images/menu.png" alt="メニュー">
+    </button>
+  </div>
 
-.header a.logo {
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
+  <nav id="menu" class="side-menu">
+    <a href="../message/"><img src="../../images/message.png" alt="メッセージ">メッセージ一覧</a>
+    <a href="../photo/"><img src="../../images/photo.png" alt="写真">写真</a>
+    <a href="../illust/"><img src="../../images/illust.png" alt="イラスト">イラスト</a>
+    <a href="../info/"><img src="../../images/information.png" alt="インフォ">インフォメーション</a>
+    <a href="../../index.html"><img src="../../images/home.png" alt="トップ">トップページ</a>
+  </nav>
 
-.header-title {
-  font-size: 1.5rem;
-  margin: 0;
-}
+  <div class="container">
+    <h2>📨 ファンの皆様からのメッセージ</h2>
+    <p class="message">・応援しています！これからも楽しみにしています！</p>
+    <p class="message">・素敵な企画ですね、完成を楽しみに待っています。</p>
+    <p class="message">・サイト公開おめでとうございます！</p>
+  </div>
 
-.header-title a {
-  text-decoration: none;
-  color: #333;
-}
+  <div class="footer-links">
+    <a href="../message/">メッセージ</a>
+    <a href="../photo/">写真</a>
+    <a href="../illust/">イラスト</a>
+    <a href="../info/">インフォ</a>
+    <a href="../../index.html">TOP</a>
+  </div>
 
-.menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
+  <div class="bottom-nav">
+    <a href="../message/"><img src="../../images/message.png" alt="メッセージ"></a>
+    <a href="../photo/"><img src="../../images/photo.png" alt="写真"></a>
+    <a href="../illust/"><img src="../../images/illust.png" alt="イラスト"></a>
+    <a href="../info/"><img src="../../images/information.png" alt="インフォ"></a>
+    <a href="../../index.html"><img src="../../images/home.png" alt="TOPに戻る"></a>
+  </div>
 
-.menu-btn img {
-  width: 32px;
-  height: 32px;
-}
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('open');
+    }
 
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 250px;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
-  padding: 60px 20px;
-  transition: right 0.3s ease;
-  z-index: 999;
-}
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('menu').classList.remove('open');
+    });
+  </script>
 
-.side-menu.open {
-  right: 0;
-}
-
-.side-menu a {
-  display: flex;
-  align-items: center;
-  margin: 15px 0;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-
-.side-menu a img {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-}
-
-.container {
-  max-width: 800px;
-  margin: 60px auto 100px;
-  padding: 0 20px;
-  text-align: left;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-p.message {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-.footer-links {
-  text-align: center;
-  font-size: 0.9rem;
-  margin: 40px 0 10px;
-}
-
-.footer-links a {
-  margin: 0 10px;
-  color: #666;
-  text-decoration: none;
-}
-
-.bottom-nav {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-    padding: 5px 0;
-    z-index: 1000;
-  }
-
-  .bottom-nav a img {
-    width: 28px;
-    height: 28px;
-  }
-
-  .header-title {
-    font-size: 1.1rem;
-  }
-}
+</body>
+</html>
