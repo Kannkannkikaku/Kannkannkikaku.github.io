@@ -9,14 +9,13 @@
 </head>
 <body>
 
-  <div class="header">
-    <h1 class="header-title">
-      <a href="../../index.html">Kannkann企画</a> ＞ メッセージ
-    </h1>
-    <button class="menu-btn" onclick="toggleMenu()">
-      <img src="../../images/menu.png" alt="メニュー">
-    </button>
-  </div>
+<div class="header">
+  <a href="../../index.html" class="logo">Kannkann企画</a>
+  <span class="current-page">＞ メッセージ</span>
+  <button class="menu-btn" onclick="toggleMenu()">
+    <img src="../../images/menu.png" alt="メニュー">
+  </button>
+</div>
 
   <nav id="menu" class="side-menu">
     <a href="../message/"><img src="../../images/message.png" alt="メッセージ">メッセージ一覧</a>
@@ -41,13 +40,28 @@
     <a href="../../index.html">TOP</a>
   </div>
 
-  <div class="bottom-nav">
-    <a href="../message/"><img src="../../images/message.png" alt="メッセージ"></a>
-    <a href="../photo/"><img src="../../images/photo.png" alt="写真"></a>
-    <a href="../illust/"><img src="../../images/illust.png" alt="イラスト"></a>
-    <a href="../info/"><img src="../../images/information.png" alt="インフォ"></a>
-    <a href="../../index.html"><img src="../../images/home.png" alt="TOPに戻る"></a>
-  </div>
+<div class="bottom-nav">
+  <a href="../message/">
+    <img src="../../images/message.png" alt="メッセージ">
+    <span>メッセージ</span>
+  </a>
+  <a href="../photo/">
+    <img src="../../images/photo.png" alt="写真">
+    <span>写真</span>
+  </a>
+  <a href="../illust/">
+    <img src="../../images/illust.png" alt="イラスト">
+    <span>イラスト</span>
+  </a>
+  <a href="../info/">
+    <img src="../../images/information.png" alt="インフォ">
+    <span>インフォ</span>
+  </a>
+  <a href="../../index.html">
+    <img src="../../images/home.png" alt="TOPに戻る">
+    <span>TOP</span>
+  </a>
+</div>
 
   <script>
     function toggleMenu() {
