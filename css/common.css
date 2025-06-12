@@ -1,4 +1,10 @@
-/* === 共通（上部バー・サイドメニュー）=== */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f8f8f8;
+  color: #555;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -11,18 +17,8 @@
   z-index: 1000;
 }
 
-.header-title {
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-.header-title a {
-  text-decoration: none;
-  color: #333;
-}
-
 .header a.logo {
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* スマホ対策でやや小さめ */
   text-decoration: none;
   color: #333;
   font-weight: bold;
@@ -72,7 +68,27 @@
   margin-right: 10px;
 }
 
-/* === スマホ用下部バー === */
+.container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+img.main-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.main-text h2 {
+  font-size: 2rem;
+  margin-top: 40px;
+}
+
+.main-text p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
 .bottom-nav {
   display: none;
 }
@@ -105,8 +121,31 @@
     width: 24px;
     height: 24px;
   }
+}
 
-  .header-title {
-    font-size: 1.1rem;
-  }
+.top-link {
+  text-align: center;
+  margin: 40px 0 10px;
+}
+
+.top-link a {
+  text-decoration: none;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.footer-links {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-bottom: 120px;
+}
+
+.footer-links a {
+  margin: 0 8px;
+  text-decoration: none;
+  color: #666;
 }
