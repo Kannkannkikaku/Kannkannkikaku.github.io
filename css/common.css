@@ -1,12 +1,4 @@
-/* ====== 全体共通 ====== */
-body {
-  font-family: sans-serif;
-  margin: 0;
-  background-color: #f8f8f8;
-  color: #555;
-}
-
-/* ====== ヘッダー ====== */
+/* === 共通（上部バー・サイドメニュー）=== */
 .header {
   display: flex;
   justify-content: space-between;
@@ -29,6 +21,13 @@ body {
   color: #333;
 }
 
+.header a.logo {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
 .menu-btn {
   background: none;
   border: none;
@@ -37,11 +36,10 @@ body {
 }
 
 .menu-btn img {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 }
 
-/* ====== サイドメニュー ====== */
 .side-menu {
   position: fixed;
   top: 0;
@@ -53,6 +51,10 @@ body {
   padding: 60px 20px;
   transition: right 0.3s ease;
   z-index: 999;
+}
+
+.side-menu.open {
+  right: 0;
 }
 
 .side-menu a {
@@ -70,12 +72,40 @@ body {
   margin-right: 10px;
 }
 
-.side-menu.open {
-  right: 0;
+/* === スマホ用下部バー === */
+.bottom-nav {
+  display: none;
 }
 
-/* ====== レスポンシブ調整（モバイル時） ====== */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    z-index: 1000;
+  }
+
+  .bottom-nav a {
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8rem;
+  }
+
+  .bottom-nav img {
+    display: block;
+    margin: 0 auto 5px;
+    width: 24px;
+    height: 24px;
+  }
+
   .header-title {
     font-size: 1.1rem;
   }
