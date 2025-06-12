@@ -2,75 +2,71 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Kannkann企画</title>
+  <title>準備中</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/kann-favicon.png">
   <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
 
-  <header class="header">
-    <h1 class="header-title">
-      <a href="index.html" class="logo">Kannkann企画</a>
-    </h1>
+  <div class="header">
+    <a href="index.html" class="logo">Kannkann企画</a>
     <button class="menu-btn" onclick="toggleMenu()">
       <img src="images/menu.png" alt="メニュー">
     </button>
+  </div>
 
-    <nav id="menu" class="side-menu">
-      <a href="pages/message/"><img src="images/message.png" alt="メッセージ">メッセージ一覧</a>
-      <a href="pages/photo/"><img src="images/photo.png" alt="写真">写真</a>
-      <a href="pages/illust/"><img src="images/illust.png" alt="イラスト">イラスト</a>
-      <a href="pages/information/"><img src="images/information.png" alt="インフォ">インフォメーション</a>
-      <a href="index.html"><img src="images/home.png" alt="トップ">トップページ</a>
-    </nav>
-  </header>
+  <nav id="menu" class="side-menu">
+    <a href="message.html"><img src="images/message.png" alt="メッセージ">メッセージ</a>
+    <a href="#"><img src="images/photo.png" alt="写真">写真</a>
+    <a href="#"><img src="images/illust.png" alt="イラスト">イラスト</a>
+    <a href="#"><img src="images/information.png" alt="インフォメーション">インフォメーション</a>
+    <a href="index.html"><img src="images/home.png" alt="ホーム">ホーム</a>
+  </nav>
 
-  <main class="container">
-    <h2>🎉 Kannkann企画 サイトへようこそ！</h2>
-    <p>ファンのみなさまからの温かいメッセージ、イラスト、写真を掲載しています。</p>
-    <p>各コンテンツはメニューからご覧いただけます。</p>
-  </main>
-
-  <footer>
-    <div class="footer-links">
-      <a href="pages/message/">メッセージ</a>|
-      <a href="pages/photo/">写真</a>|
-      <a href="pages/illust/">イラスト</a>|
-      <a href="pages/information/">インフォ</a>|
-      <a href="index.html">TOP</a>
+  <div class="container">
+    <img src="images/test-main.png" alt="メイン画像" class="main-image">
+    <div class="main-text">
+      <h2>🎉 サイト準備中 🎉</h2>
+      <p>11月19日 公開予定です。どうぞお楽しみに！</p>
     </div>
+  </div>
 
-    <div class="bottom-nav">
-      <a href="pages/message/">
-        <img src="images/message.png" alt="メッセージ">
-        <span>メッセージ</span>
-      </a>
-      <a href="pages/photo/">
-        <img src="images/photo.png" alt="写真">
-        <span>写真</span>
-      </a>
-      <a href="pages/illust/">
-        <img src="images/illust.png" alt="イラスト">
-        <span>イラスト</span>
-      </a>
-      <a href="pages/information/">
-        <img src="images/information.png" alt="インフォ">
-        <span>インフォ</span>
-      </a>
-      <a href="index.html">
-        <img src="images/home.png" alt="TOPに戻る">
-        <span>TOP</span>
-      </a>
-    </div>
-  </footer>
+  <!-- 下部テキストリンク -->
+  <div class="footer-links">
+    <a href="message.html">メッセージ</a>｜
+    <a href="#">写真</a>｜
+    <a href="#">イラスト</a>｜
+    <a href="#">インフォメーション</a>｜
+    <a href="index.html">TOP</a>
+  </div>
+
+  <!-- スマホ用ナビ -->
+  <div class="bottom-nav">
+    <a href="message.html">
+      <img src="images/message.png" alt="メッセージ">
+      メッセージ
+    </a>
+    <a href="#">
+      <img src="images/photo.png" alt="写真">
+      写真
+    </a>
+    <a href="#">
+      <img src="images/illust.png" alt="イラスト">
+      イラスト
+    </a>
+    <a href="#">
+      <img src="images/information.png" alt="インフォ">
+      インフォ
+    </a>
+  </div>
 
   <script>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('open');
     }
 
-    window.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('DOMContentLoaded', function () {
       document.getElementById('menu').classList.remove('open');
     });
   </script>
