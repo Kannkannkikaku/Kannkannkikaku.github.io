@@ -1,16 +1,82 @@
+/* ====== 全体共通 ====== */
 body {
   font-family: sans-serif;
+  margin: 0;
   background-color: #f8f8f8;
   color: #555;
 }
 
-.header, .footer-links, .bottom-nav {
+/* ====== ヘッダー ====== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #fff;
+  padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* リンク共通スタイル */
-a {
-  color: #333;
+.header-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.header-title a {
   text-decoration: none;
+  color: #333;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+/* ====== サイドメニュー ====== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+  padding: 60px 20px;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.side-menu a {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.side-menu a img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+/* ====== レスポンシブ調整（モバイル時） ====== */
+@media screen and (max-width: 768px) {
+  .header-title {
+    font-size: 1.1rem;
+  }
 }
