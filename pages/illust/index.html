@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>イラスト一覧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../images/kann-favicon.png">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">
+    <a href="../../index.html" class="logo">Kannkann企画</a>
+    <span class="current-page">＞ イラスト</span>
+  </div>
+  <button class="menu-btn" onclick="toggleMenu()">
+    <img src="../../images/menu.png" alt="メニュー">
+  </button>
+</div>
+
+<nav id="menu" class="side-menu">
+  <a href="../message/"><img src="../../images/message.png" alt="メッセージ">メッセージ一覧</a>
+  <a href="../photo/"><img src="../../images/photo.png" alt="写真">写真</a>
+  <a href="../illust/"><img src="../../images/illust.png" alt="イラスト">イラスト</a>
+  <a href="../info/"><img src="../../images/information.png" alt="インフォ">インフォメーション</a>
+  <a href="../../index.html"><img src="../../images/home.png" alt="トップ">トップページ</a>
+</nav>
+
+<div class="container">
+  <h2>🎨 ファンの皆様からのイラスト</h2>
+  <p class="message">・近日公開予定です！</p>
+  <!-- イラストが追加されたらここに <img> や <figure> を挿入 -->
+</div>
+
+<div class="footer-links">
+  <a href="../message/">メッセージ</a>|
+  <a href="../photo/">写真</a>|
+  <a href="../illust/">イラスト</a>|
+  <a href="../info/">インフォ</a>|
+  <a href="../../index.html">TOP</a>
+</div>
+
+<div class="bottom-nav">
+  <a href="../message/">
+    <img src="../../images/message.png" alt="メッセージ">
+    <span>メッセージ</span>
+  </a>
+  <a href="../photo/">
+    <img src="../../images/photo.png" alt="写真">
+    <span>写真</span>
+  </a>
+  <a href="../illust/">
+    <img src="../../images/illust.png" alt="イラスト">
+    <span>イラスト</span>
+  </a>
+  <a href="../info/">
+    <img src="../../images/information.png" alt="インフォ">
+    <span>インフォ</span>
+  </a>
+  <a href="../../index.html">
+    <img src="../../images/home.png" alt="TOPに戻る">
+    <span>TOP</span>
+  </a>
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('open');
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('menu').classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
