@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  background-color: #f8f8f8;
+  color: #555;
+}
+
+.header, .footer-links, .bottom-nav {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* リンク共通スタイル */
+a {
+  color: #333;
+  text-decoration: none;
+}
