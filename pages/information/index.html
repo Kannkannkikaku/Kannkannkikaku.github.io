@@ -6,73 +6,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="../../images/kann-favicon.png">
   <link rel="stylesheet" href="../../css/common.css">
+  <script src="../../js/toggleMenu.js"></script>
 </head>
 <body>
+  <!--headerここから-->
+  <header>
 
-<div class="header">
-  <div class="header-title">
-    <a href="../../index.html" class="logo">Kannkann企画</a>
-    <span class="current-page">＞ インフォメーション</span>
-  </div>
-  <button class="menu-btn" onclick="toggleMenu()">
-    <img src="../../images/menu.png" alt="メニュー">
-  </button>
-</div>
+    <div class="header">
+      <div class="header-title">
+        <a href="../../index.html" class="logo">Kannkann企画</a>
+        <span class="current-page">＞ インフォメーション</span>
+      </div>
+      <button class="menu-btn" onclick="toggleMenu()">
+        <img src="../../images/menu.png" alt="メニュー">
+      </button>
+    </div>
 
-<nav id="menu" class="side-menu">
-  <a href="../message/"><img src="../../images/message.png" alt="メッセージ">メッセージ一覧</a>
-  <a href="../photo/"><img src="../../images/photo.png" alt="写真">写真</a>
-  <a href="../illust/"><img src="../../images/illust.png" alt="イラスト">イラスト</a>
-  <a href="../information/"><img src="../../images/information.png" alt="インフォ">インフォメーション</a>
-  <a href="../../index.html"><img src="../../images/home.png" alt="トップ">トップページ</a>
-</nav>
+    <nav id="menu" class="side-menu">
+      <a href="../message/"><img src="../../images/message.png" alt="メッセージ">メッセージ一覧</a>
+      <a href="../photo/"><img src="../../images/photo.png" alt="写真">写真</a>
+      <a href="../illust/"><img src="../../images/illust.png" alt="イラスト">イラスト</a>
+      <a href="../information/"><img src="../../images/information.png" alt="インフォ">インフォメーション</a>
+      <a href="../../index.html"><img src="../../images/home.png" alt="トップ">トップページ</a>
+    </nav>
 
-<div class="container">
-  <h2>📝 駅広告などのお知らせ</h2>
-  <p class="message">・現在、準備中です。駅広告に関する詳細はこのページで随時お知らせいたします。</p>
-  <!-- 駅広告のポスター画像や設置場所情報などを後日ここに追加予定 -->
-</div>
+  </header>
+  <!--headerここまで-->
 
-<div class="footer-links">
-  <a href="../message/">メッセージ</a>|
-  <a href="../photo/">写真</a>|
-  <a href="../illust/">イラスト</a>|
-  <a href="../information/">インフォ</a>|
-  <a href="../../index.html">TOP</a>
-</div>
 
-<div class="bottom-nav">
-  <a href="../message/">
-    <img src="../../images/message.png" alt="メッセージ">
-    <span>メッセージ</span>
-  </a>
-  <a href="../photo/">
-    <img src="../../images/photo.png" alt="写真">
-    <span>写真</span>
-  </a>
-  <a href="../illust/">
-    <img src="../../images/illust.png" alt="イラスト">
-    <span>イラスト</span>
-  </a>
-  <a href="../information/">
-    <img src="../../images/information.png" alt="インフォ">
-    <span>インフォ</span>
-  </a>
-  <a href="../../index.html">
-    <img src="../../images/home.png" alt="TOPに戻る">
-    <span>TOP</span>
-  </a>
-</div>
+  <!--mainここから-->
+  <main>
 
-<script>
-  function toggleMenu() {
-    document.getElementById('menu').classList.toggle('open');
-  }
+    <div class="container">
+      <h2>📝 駅広告などのお知らせ</h2>
+      <p class="message">・現在、準備中です。駅広告に関する詳細はこのページで随時お知らせいたします。</p>
+      <!-- 駅広告のポスター画像や設置場所情報などを後日ここに追加予定 -->
+    </div>
 
-  window.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('menu').classList.remove('open');
-  });
-</script>
+  </main>
+  <!--mainここまで-->
+
+
+  <!--footerここから-->
+  <footer>
+
+    <div class="footer-links">
+      <a href="../message/">メッセージ</a>|
+      <a href="../photo/">写真</a>|
+      <a href="../illust/">イラスト</a>|
+      <a href="../information/">インフォ</a>|
+      <a href="../../index.html">TOP</a>
+    </div>
+
+    <div class="bottom-nav">
+      <a href="../message/">
+        <img src="../../images/message.png" alt="メッセージ">
+        <span>メッセージ</span>
+      </a>
+      <a href="../photo/">
+        <img src="../../images/photo.png" alt="写真">
+        <span>写真</span>
+      </a>
+      <a href="../illust/">
+        <img src="../../images/illust.png" alt="イラスト">
+        <span>イラスト</span>
+      </a>
+      <a href="../information/">
+        <img src="../../images/information.png" alt="インフォ">
+        <span>インフォ</span>
+      </a>
+      <a href="../../index.html">
+        <img src="../../images/home.png" alt="TOPに戻る">
+        <span>TOP</span>
+      </a>
+    </div>
+    
+  </footer>
+  <!--footerここまで-->
+
+
+
+
+
+
+
 
 </body>
 </html>
