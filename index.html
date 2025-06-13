@@ -6,74 +6,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/kann-favicon.png">
   <link rel="stylesheet" href="css/common.css">
+  <script src="./js/toggleMenu.js"></script>
 </head>
+
 <body>
 
-  <header class="header">
-    <a href="index.html" class="logo">Kannkann企画</a>
-    <button class="menu-btn" onclick="toggleMenu()">
+  <!-- headerここから-->
+  <header>
+
+    <div class="header">
+      <a href="index.html" class="logo">Kannkann企画</a>
+      <button class="menu-btn" onclick="toggleMenu()">
       <img src="images/menu.png" alt="メニュー">
-    </button>
-  </header>
-  
+      </button>
+    </div>
+
     <nav id="menu" class="side-menu">
-      <a href="pages/message/"><img src="images/message.png" alt="メッセージ">メッセージ一覧</a>
+      <a href="pages/message/"><img src="images/message.png" alt="メッセージ">メッセージ</a>
       <a href="pages/photo/"><img src="images/photo.png" alt="写真">写真</a>
       <a href="pages/illust/"><img src="images/illust.png" alt="イラスト">イラスト</a>
-      <a href="pages/information/"><img src="images/information.png" alt="インフォ">インフォメーション</a>
-      <a href="index.html"><img src="images/home.png" alt="トップ">トップページ</a>
+      <a href="pages/information/"><img src="images/information.png" alt="インフォメーション">インフォメーション</a>
+      <a href="index.html"><img src="images/home.png" alt="ホーム">ホーム</a>
     </nav>
 
-  <main class="container">
-    <img src="images/test-main.png" alt="メイン画像" class="main-image">
-    <div class="main-text">
-      <h2>🎉 サイト準備中 🎉</h2>
-      <p>11月19日 公開予定です。どうぞお楽しみに！</p>
-    </div>
-  </main>
+  </header>
+  <!-- headerここまで-->
 
+
+  <!-- mainここから-->
+  <main>
+
+    <div class="container">
+      <img src="images/test-main.png" alt="メイン画像" class="main-image">
+      <div class="main-text">
+        <h2>🎉 サイト準備中 🎉</h2>
+        <p>11月19日 公開予定です。どうぞお楽しみに！</p>
+      </div>
+    </div>
+
+
+  </main>
+  <!-- mainここまで-->
+
+
+  <!-- footerここから-->
   <footer>
+
+  <!-- 下部テキストリンク -->
     <div class="footer-links">
-      <a href="pages/message/">メッセージ</a>|
-      <a href="pages/photo/">写真</a>|
-      <a href="pages/illust/">イラスト</a>|
-      <a href="pages/information/">インフォ</a>|
+      <a href="pages/message/">メッセージ</a>｜
+      <a href="pages/photo/">写真</a>｜
+      <a href="pages/illust/">イラスト</a>｜
+      <a href="pages/information/">インフォメーション</a>｜
       <a href="index.html">TOP</a>
     </div>
 
+  <!-- スマホ用ナビ -->
     <div class="bottom-nav">
       <a href="pages/message/">
         <img src="images/message.png" alt="メッセージ">
-        <span>メッセージ</span>
+        メッセージ
       </a>
       <a href="pages/photo/">
         <img src="images/photo.png" alt="写真">
-        <span>写真</span>
+        写真
       </a>
       <a href="pages/illust/">
         <img src="images/illust.png" alt="イラスト">
-        <span>イラスト</span>
+        イラスト
       </a>
       <a href="pages/information/">
         <img src="images/information.png" alt="インフォ">
-        <span>インフォ</span>
-      </a>
-      <a href="index.html">
-        <img src="images/home.png" alt="TOPに戻る">
-        <span>TOP</span>
+        インフォ
       </a>
     </div>
+
   </footer>
+  <!-- footerここまで-->
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('open');
-    }
-
-    window.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('menu').classList.remove('open');
-    });
-  </script>
 
 </body>
 </html>
