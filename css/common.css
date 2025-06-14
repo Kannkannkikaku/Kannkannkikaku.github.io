@@ -1,6 +1,5 @@
-
 /* レイアウトの型崩れ防止 */
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -11,30 +10,36 @@ body {
   color: #555;
 }
 
+/* ヘッダー */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   background-color: #fff;
   padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 900;
 }
 
 .header a.logo {
-  font-size: 1.2rem; /* スマホ対策でやや小さめ */
+  font-size: 1.2rem;
   text-decoration: none;
   color: #333;
   font-weight: bold;
 }
 
+/* メニューボタン：常に右上に固定表示 */
 .menu-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
+  z-index: 1000;
 }
 
 .menu-btn img {
@@ -42,6 +47,7 @@ body {
   height: 28px;
 }
 
+/* サイドメニュー */
 .side-menu {
   position: fixed;
   top: 0;
@@ -49,7 +55,7 @@ body {
   width: 250px;
   height: 100%;
   background-color: #fff;
-  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
   padding: 60px 20px;
   transition: right 0.3s ease;
   z-index: 999;
@@ -74,6 +80,7 @@ body {
   margin-right: 10px;
 }
 
+/* メインコンテンツ */
 .container {
   text-align: center;
   padding: 40px 20px;
@@ -95,6 +102,20 @@ img.main-image {
   margin-top: 20px;
 }
 
+/* フッターリンク */
+.footer-links {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-bottom: 120px;
+}
+
+.footer-links a {
+  margin: 0 8px;
+  text-decoration: none;
+  color: #666;
+}
+
+/* スマホ下部ナビゲーション */
 .bottom-nav {
   display: none;
 }
@@ -129,6 +150,7 @@ img.main-image {
   }
 }
 
+/* トップページリンク */
 .top-link {
   text-align: center;
   margin: 40px 0 10px;
@@ -142,16 +164,4 @@ img.main-image {
   border-radius: 8px;
   font-weight: bold;
   display: inline-block;
-}
-
-.footer-links {
-  text-align: center;
-  font-size: 0.8rem;
-  margin-bottom: 120px;
-}
-
-.footer-links a {
-  margin: 0 8px;
-  text-decoration: none;
-  color: #666;
 }
