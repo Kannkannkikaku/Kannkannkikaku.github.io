@@ -115,6 +115,28 @@ img.main-image {
   color: #666;
 }
 
+.footer-social {
+  text-align: center;
+  margin: 8px 0;
+}
+
+.footer-social a img.x-icon {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-social a img.x-icon:hover {
+  opacity: 0.7;
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999;
+  margin: 8px 0 100px;
+}
+
 /* スマホ下部ナビゲーション */
 .bottom-nav {
   display: none;
