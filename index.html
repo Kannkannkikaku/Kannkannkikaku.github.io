@@ -7,91 +7,98 @@
   <link rel="icon" type="image/png" href="images/kann-favicon.png">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animation.css">
   <script src="./js/toggleMenu.js"></script>
+  <script src="./js/animation.js"></script>
 </head>
 
 <body>
+  <div id="loading-screen">
+    <img src="./images/kann-favicon.png" alt="Loading...">
+  </div>
 
-        <button class="menu-btn" onclick="toggleMenu()">
+  <div id="page-content">
+
+    <button class="menu-btn" onclick="toggleMenu()">
       <img src="images/menu.png" alt="メニュー">
-      </button>
-  
-  <!-- headerここから-->
-  <header>
-
-    <div class="header">
-      <a href="index.html" class="logo">Kannkann企画</a>
-    </div>
-
-    <nav id="menu" class="side-menu">
-      <a href="pages/message/"><img src="images/message.png" alt="メッセージ">メッセージ</a>
-      <a href="pages/illust/"><img src="images/illust.png" alt="イラスト">イラスト</a>
-      <a href="pages/information/"><img src="images/information.png" alt="インフォメーション">インフォメーション</a>
-      <a href="index.html"><img src="images/home.png" alt="ホーム">ホーム</a>
-    </nav>
-
-    <div id="overlay" class="overlay" onclick="closeMenu()"></div>
-
-  </header>
-  <!-- headerここまで-->
-
-
-  <!-- mainここから-->
-  <main>
-
-    <div class="container">
-      <img src="images/test-main.png" alt="メイン画像" class="main-image">
-      <div class="main-text">
-        <h2>🎉 サイト準備中 🎉</h2>
-        <p>11月19日 公開予定です。どうぞお楽しみに！</p>
-      </div>
-    </div>
-
-
-  </main>
-  <!-- mainここまで-->
-
-
-  <!-- footerここから-->
-  <footer>
-
-  <!-- 下部テキストリンク -->
-    <div class="footer-links">
-      <a href="pages/message/">メッセージ</a>｜
-      <a href="pages/illust/">イラスト</a>｜
-      <a href="pages/information/">インフォメーション</a>｜
-      <a href="index.html">TOP</a>
-    </div>
-
-    <div class="footer-social">
-    <a href="https://x.com/kannkikaku?s=21&t=5o0lw-318r4fDGVlBy44OQ" target="_blank" rel="noopener">
-      <img src="images/X.png" alt="Xアカウント" class="x-icon">
-    </a>
-  </div>
-
-  <div class="footer-copy">
-    © 菅叶和誕生日企画 2025 some rights reserved.
-  </div>
+    </button>
     
-  <!-- スマホ用ナビ -->
-    <div class="bottom-nav">
-      <a href="pages/message/">
-        <img src="images/message.png" alt="メッセージ">
-        メッセージ
-      </a>
-      <a href="pages/illust/">
-        <img src="images/illust.png" alt="イラスト">
-        イラスト
-      </a>
-      <a href="pages/information/">
-        <img src="images/information.png" alt="インフォ">
-        インフォ
+    <!-- headerここから-->
+    <header>
+
+      <div class="header">
+        <a href="index.html" class="logo">Kannkann企画</a>
+      </div>
+
+      <nav id="menu" class="side-menu">
+        <a href="pages/message/"><img src="images/message.png" alt="メッセージ">メッセージ</a>
+        <a href="pages/illust/"><img src="images/illust.png" alt="イラスト">イラスト</a>
+        <a href="pages/information/"><img src="images/information.png" alt="インフォメーション">インフォメーション</a>
+        <a href="index.html"><img src="images/home.png" alt="ホーム">ホーム</a>
+      </nav>
+
+      <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+    </header>
+    <!-- headerここまで-->
+
+
+    <!-- mainここから-->
+    <main>
+
+      <div class="container">
+        <img src="images/test-main.png" alt="メイン画像" class="main-image">
+        <div class="main-text">
+          <h2>🎉 サイト準備中 🎉</h2>
+          <p>11月19日 公開予定です。どうぞお楽しみに！</p>
+        </div>
+      </div>
+
+
+    </main>
+    <!-- mainここまで-->
+
+
+    <!-- footerここから-->
+    <footer>
+
+    <!-- 下部テキストリンク -->
+      <div class="footer-links">
+        <a href="pages/message/">メッセージ</a>｜
+        <a href="pages/illust/">イラスト</a>｜
+        <a href="pages/information/">インフォメーション</a>｜
+        <a href="index.html">TOP</a>
+      </div>
+
+      <div class="footer-social">
+      <a href="https://x.com/kannkikaku?s=21&t=5o0lw-318r4fDGVlBy44OQ" target="_blank" rel="noopener">
+        <img src="images/X.png" alt="Xアカウント" class="x-icon">
       </a>
     </div>
 
-  </footer>
-  <!-- footerここまで-->
+    <div class="footer-copy">
+      © 菅叶和誕生日企画 2025 some rights reserved.
+    </div>
+      
+    <!-- スマホ用ナビ -->
+      <div class="bottom-nav">
+        <a href="pages/message/">
+          <img src="images/message.png" alt="メッセージ">
+          メッセージ
+        </a>
+        <a href="pages/illust/">
+          <img src="images/illust.png" alt="イラスト">
+          イラスト
+        </a>
+        <a href="pages/information/">
+          <img src="images/information.png" alt="インフォ">
+          インフォ
+        </a>
+      </div>
 
-
+    </footer>
+    <!-- footerここまで-->
+  </div>
+  <script src="./js/animation.js"></script>
 </body>
 </html>
