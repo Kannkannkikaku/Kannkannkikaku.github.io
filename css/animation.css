@@ -1,0 +1,104 @@
+/* --- ボタンのホバーエフェクト --- */
+
+header nav a,
+.menu-btn,
+.footer-links a,
+.bottom-nav a,
+.footer-social a img.x-icon{
+  transition: opacity 0.3s ease; /* 透明度が0.3秒かけて滑らかに変化する */
+}
+
+header nav a:hover,
+.menu-btn:hover,
+.footer-links a:hover,
+.bottom-nav a:hover,
+.footer-social a img.x-icon:hover{
+  opacity: 0.3; /* マウスを乗せると少し透明になる */
+}
+
+/* =================================== */
+/* ===== ローディングアニメーション（最終版） ===== */
+/* =================================== */
+
+/* --- トップページ専用 --- */
+
+/* ロード画面の全体。これが最終的に「開く」カーテンになる */
+.page-index #loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* 初期背景は白 */
+  /* 「開く」ときのアニメーション設定 */
+  clip-path: circle(75% at 50% 50%);
+  transition: clip-path 1s ease-in-out;
+}
+
+/* カーテン役の疑似要素。これが「閉じる」動きをする */
+.page-index #loading-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #AFDFE4; /* カーテンの色 */
+  z-index: -1; /* アイコンの背後に配置 */
+  /* 「閉じる」ときのアニメーション設定 */
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.8s ease-in;
+}
+
+/* アイコンの初期設定 */
+.page-index #loading-screen img {
+  width: 80px;
+  animation: pulse 1.5s ease-in-out infinite;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* ページコンテンツはアニメーションに関与しない */
+.page-index #page-content {
+  opacity: 1;
+}
+
+
+/* --- JavaScriptで制御するクラス --- */
+
+/* 1. アイコンをフェードアウトさせる */
+.page-index #loading-screen.fade-icon img {
+  opacity: 0;
+}
+
+/* 2. カーテンを「閉じる」（背景を色で満たす）*/
+.page-index #loading-screen.curtain-close::before {
+  clip-path: circle(75% at 50% 50%);
+}
+
+/* 3. カーテンを「開く」（コンテンツを表示）*/
+.page-index #loading-screen.curtain-open {
+  clip-path: circle(0% at 50% 50%);
+}
+
+/* --- サブページ用のスタイルは変更なし --- */
+/* (必要に応じて記述) */
+.page-sub #page-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.page-sub #page-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

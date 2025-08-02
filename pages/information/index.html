@@ -7,96 +7,94 @@
   <link rel="icon" type="image/png" href="../../images/kann-favicon.png">
   <link rel="stylesheet" href="../../css/common.css">
   <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/animation.css">
   <script src="../../js/toggleMenu.js"></script>
+  <script src="../../js/animation.js"></script>
 </head>
-<body>
-        <button class="menu-btn" onclick="toggleMenu()">
+
+<body class="page-sub">
+  <div id="page-content">
+    <button class="menu-btn" onclick="toggleMenu()">
         <img src="../../images/menu.png" alt="メニュー">
-      </button>
-  <!--headerここから-->
-  <header>
+    </button>
+    <!--headerここから-->
+    <header>
 
-    <div class="header">
-      <div class="header-title">
-        <a href="../../index.html" class="logo">Kannkann企画</a>
-        <span class="current-page">＞ インフォメーション</span>
+      <div class="header">
+        <div class="header-title">
+          <a href="../../index.html" class="logo">Kannkann企画</a>
+          <span class="current-page">＞ インフォメーション</span>
+        </div>
       </div>
+
+      <nav id="menu" class="side-menu">
+        <a href="../message/"><img src="../../images/message.png" alt="メッセージ">メッセージ一覧</a>
+        <a href="../illust/"><img src="../../images/illust.png" alt="イラスト">イラスト</a>
+        <a href="../information/"><img src="../../images/information.png" alt="インフォ">インフォメーション</a>
+        <a href="../../index.html"><img src="../../images/home.png" alt="トップ">トップページ</a>
+      </nav>
+
+      <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+      
+    </header>
+    <!--headerここまで-->
+
+
+    <!--mainここから-->
+    <main>
+
+      <div class="container">
+        <h2>📝 駅広告などのお知らせ</h2>
+        <p class="message">・現在、準備中です。駅広告に関する詳細はこのページで随時お知らせいたします。</p>
+        <!-- 駅広告のポスター画像や設置場所情報などを後日ここに追加予定 -->
+      </div>
+
+    </main>
+    <!--mainここまで-->
+
+
+    <!--footerここから-->
+    <footer>
+
+      <div class="footer-links">
+        <a href="../message/">メッセージ</a>|
+        <a href="../illust/">イラスト</a>|
+        <a href="../information/">インフォ</a>|
+        <a href="../../index.html">TOP</a>
+      </div>
+      
+      <div class="footer-social">
+      <a href="https://x.com/kannkikaku?s=21&t=5o0lw-318r4fDGVlBy44OQ" target="_blank" rel="noopener">
+        <img src="../../images/X.png" alt="Xアカウント" class="x-icon">
+      </a>
     </div>
 
-    <nav id="menu" class="side-menu">
-      <a href="../message/"><img src="../../images/message.png" alt="メッセージ">メッセージ一覧</a>
-      <a href="../illust/"><img src="../../images/illust.png" alt="イラスト">イラスト</a>
-      <a href="../information/"><img src="../../images/information.png" alt="インフォ">インフォメーション</a>
-      <a href="../../index.html"><img src="../../images/home.png" alt="トップ">トップページ</a>
-    </nav>
-
-    <div id="overlay" class="overlay" onclick="closeMenu()"></div>
-    
-  </header>
-  <!--headerここまで-->
-
-
-  <!--mainここから-->
-  <main>
-
-    <div class="container">
-      <h2>📝 駅広告などのお知らせ</h2>
-      <p class="message">・現在、準備中です。駅広告に関する詳細はこのページで随時お知らせいたします。</p>
-      <!-- 駅広告のポスター画像や設置場所情報などを後日ここに追加予定 -->
+    <div class="footer-copy">
+      © 菅叶和誕生日企画 2025 some rights reserved.
     </div>
-
-  </main>
-  <!--mainここまで-->
-
-
-  <!--footerここから-->
-  <footer>
-
-    <div class="footer-links">
-      <a href="../message/">メッセージ</a>|
-      <a href="../illust/">イラスト</a>|
-      <a href="../information/">インフォ</a>|
-      <a href="../../index.html">TOP</a>
-    </div>
-    
-    <div class="footer-social">
-    <a href="https://x.com/kannkikaku?s=21&t=5o0lw-318r4fDGVlBy44OQ" target="_blank" rel="noopener">
-      <img src="../../images/X.png" alt="Xアカウント" class="x-icon">
-    </a>
+      
+      <div class="bottom-nav">
+        <a href="../message/">
+          <img src="../../images/message.png" alt="メッセージ">
+          <span>メッセージ</span>
+        </a>
+        <a href="../illust/">
+          <img src="../../images/illust.png" alt="イラスト">
+          <span>イラスト</span>
+        </a>
+        <a href="../information/">
+          <img src="../../images/information.png" alt="インフォ">
+          <span>インフォ</span>
+        </a>
+        <a href="../../index.html">
+          <img src="../../images/home.png" alt="TOPに戻る">
+          <span>TOP</span>
+        </a>
+      </div>
+      
+    </footer>
+    <!--footerここまで-->
   </div>
-
-  <div class="footer-copy">
-    © 菅叶和誕生日企画 2025 some rights reserved.
-  </div>
-    
-    <div class="bottom-nav">
-      <a href="../message/">
-        <img src="../../images/message.png" alt="メッセージ">
-        <span>メッセージ</span>
-      </a>
-      <a href="../illust/">
-        <img src="../../images/illust.png" alt="イラスト">
-        <span>イラスト</span>
-      </a>
-      <a href="../information/">
-        <img src="../../images/information.png" alt="インフォ">
-        <span>インフォ</span>
-      </a>
-      <a href="../../index.html">
-        <img src="../../images/home.png" alt="TOPに戻る">
-        <span>TOP</span>
-      </a>
-    </div>
-    
-  </footer>
-  <!--footerここまで-->
-
-
-
-
-
-
-
-
+  <script src="../../js/transition.js"></script>
 </body>
 </html>
