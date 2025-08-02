@@ -1,17 +1,27 @@
 /*スマホ用レイアウト*/
 @media (max-width: 768px) {
     .bottom-nav {
-        display: flex;
-        justify-content: space-around;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        border-top: 1px solid #ccc;
-        z-index: 1000;
+    /* 1. 画面下部に固定 */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0; /* width: 100% の代わり */
+    z-index: 1000; /* 他の要素より手前に表示 */
+
+    /* 2. 見た目のスタイル */
+    display: flex; /* 横並びレイアウト */
+    justify-content: space-around; /* アイコンを等間隔に配置 */
+    align-items: center; /* アイコンを中央揃え */
+    height: 70px; /* ナビゲーションバーの高さ */
+    background-color: #fff; /* 背景色 */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); /* 上部に影をつける */
     }
 
+    /* 重要：コンテンツがナビゲーションに隠れるのを防ぐ */
+    body {
+        padding-bottom: 70px; /* .bottom-navの高さ分、余白を追加 */
+    }
+    
     .bottom-nav a {
         flex: 1;
         padding: 10px 0;
