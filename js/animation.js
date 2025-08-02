@@ -1,13 +1,28 @@
-//ローディングアニメーション
+// js/main.js (最終版)
 
-setTimeout(function() {
-  // 要素を取得
+(function() {
   const loadingScreen = document.getElementById('loading-screen');
   const pageContent = document.getElementById('page-content');
 
-  // ロード画面を非表示にするクラスを追加
-  loadingScreen.classList.add('hidden');
+  if (sessionStorage.getItem('hasVisited')) {
+    if (loadingScreen) {
+      loadingScreen.style.display = 'none';
+    }
+  } else {
+    // [順序1] 3秒後：パルスアニメーション終了 → アイコンをフェードアウト
+    setTimeout(function() {
+      loadingScreen.classList.add('fade-icon');
+    }, 3000);
 
-  // コンテンツを表示するクラスを追加
-  pageContent.classList.add('visible');
-}, 3000); // 3000ミリ秒 = 3秒
+    // [順序2] 3.5秒後：アイコンが消えた頃 → カーテンが「閉じる」
+    setTimeout(function() {
+      loadingScreen.classList.add('curtain-close');
+    }, 3500);
+
+    // [順序3] 4.5秒後：カーテンが閉じた後 → カーテンが「開く」
+    setTimeout(function() {
+      loadingScreen.classList.add('curtain-open');
+      sessionStorage.setItem('hasVisited', 'true');
+    }, 4500);
+  }
+})();
