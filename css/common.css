@@ -1,8 +1,3 @@
-/* レイアウトの型崩れ防止 */
-* {
-  box-sizing: border-box;
-}
-
 body {
   font-family: sans-serif;
   margin: 0;
@@ -49,20 +44,31 @@ body {
 
 /* サイドメニュー */
 .side-menu {
+  /* 1. 位置とサイズを画面基準で固定する */
   position: fixed;
   top: 0;
-  right: -300px;
-  width: 250px;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
-  padding: 60px 20px;
-  transition: right 0.3s ease;
-  z-index: 999;
+  right: 0; /* 左側から表示する場合 */
+  width: 280px; /* メニューの横幅 */
+  height: 100vh; /* 画面の高さ100% */
+  z-index: 999; /* 他の要素より手前に表示 */
+
+  /* 2. 見た目と内部の余白 */
+  background-color: #fff; /* 背景色 */
+  padding: 60px 40px; /* 内側の余白（上下60px, 左右40px）*/
+  box-sizing: border-box; /* paddingを含めてwidthを計算する（重要）*/
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* 見栄えを良くする影 */
+
+  /* 3. コンテンツがはみ出た場合のスクロール設定 */
+  overflow-y: auto;
+
+  /* 4. 表示/非表示のアニメーション設定 */
+  transform: translateX(100%); /* 初期状態では左側の画面外に隠す */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* JavaScriptでこのクラスが付与されたら表示する */
 .side-menu.open {
-  right: 0;
+  transform: translateX(0); /* 画面内にスライドイン */
 }
 
 .side-menu a {
