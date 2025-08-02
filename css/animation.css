@@ -1,3 +1,21 @@
+/* --- ボタンのホバーエフェクト --- */
+
+header nav a,
+.menu-btn,
+.footer-links a,
+.bottom-nav a,
+.footer-social a img.x-icon{
+  transition: opacity 0.3s ease; /* 透明度が0.3秒かけて滑らかに変化する */
+}
+
+header nav a:hover,
+.menu-btn:hover,
+.footer-links a:hover,
+.bottom-nav a:hover,
+.footer-social a img.x-icon:hover{
+  opacity: 0.3; /* マウスを乗せると少し透明になる */
+}
+
 /* =================================== */
 /* ===== ローディングアニメーション（最終版） ===== */
 /* =================================== */
