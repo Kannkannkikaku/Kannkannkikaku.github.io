@@ -133,6 +133,7 @@ img.main-image {
 .slider-wrapper {
   position: relative;
   width: 100%;
+  max-width: 800px;
   overflow: hidden;
 }
 
