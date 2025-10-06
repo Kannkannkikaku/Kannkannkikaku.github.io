@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="css/animation.css">
   <script src="./js/toggleMenu.js"></script>
   <script src="./js/animation.js"></script>
+  <script src="js/carousel-init.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
 <body class="page-index">
@@ -43,17 +46,25 @@
 
    <!-- mainここから-->
 <main>
-<div class="slider-wrapper">
-  <div class="slider" id="slider">
-    <div class="slide"><img src="images/駅広告-東京.PNG" alt="東京広告"></div>
-    <div class="slide"><img src="images/駅広告-大阪.PNG" alt="大阪広告"></div>
-    <div class="slide"><img src="images/駅広告-愛知.PNG" alt="愛知広告"></div>
-    <div class="slide"><img src="images/駅広告-石川.PNG" alt="石川広告"></div>
-  </div>
-
-  <!-- 矢印ボタン -->
-  <button id="prevBtn" class="slider-btn prev">‹</button>
-  <button id="nextBtn" class="slider-btn next">›</button>
+<div class="swiper-container mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="images/駅広告-東京.PNG" alt="東京イラスト" style="width: 100%; height: auto;">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/駅広告-大阪.PNG" alt="大阪イラスト" style="width: 100%; height: auto;">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/駅広告-愛知.PNG" alt="愛知イラスト" style="width: 100%; height: auto;">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/駅広告-石川.PNG" alt="石川イラスト" style="width: 100%; height: auto;">
+        </div>
+    </div>
+    
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
 </div>
 
   <div class="main-text">
