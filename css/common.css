@@ -134,33 +134,34 @@ img.main-image {
   position: relative;
   width: 100%;
   overflow: hidden;
-  max-width: 800px; /* 適宜調整 */
-  margin: 0 auto;
 }
 
-/* 画像を横並びにしてスライド可能に */
 .slider {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.4s ease;
 }
 
-/* 各画像サイズを統一 */
-.slider img {
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
   width: 100%;
-  flex-shrink: 0;
+  display: block;
 }
 
-/* 矢印ボタン */
 .slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
   border: none;
-  font-size: 2rem;
-  padding: 8px 16px;
+  padding: 10px;
   cursor: pointer;
-  z-index: 10;
+  font-size: 2rem;
+  z-index: 2;
 }
 
 .slider-btn.prev {
