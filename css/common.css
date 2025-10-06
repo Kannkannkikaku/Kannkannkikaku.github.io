@@ -232,15 +232,24 @@ img.main-image {
   font-weight: bold;
   display: inline-block;
 }
-/* カルーセルコンテナの基準位置を設定 */
+/* カルーセルコンテナのスタイル */
 .mySwiper {
-    /* 既存のスタイル (width, height, overflow: hidden;) に加えて、
-       矢印の配置基準となるよう position: relative; が必須です */
-    position: relative;
-    /* その他の既存のスタイルをここに保持 */
+    /* 1. 幅の設定（レスポンシブな基本幅） */
     width: 100%;
-    overflow: hidden; 
-    /* ... */
+    width: 100%; 
+    
+    /* 2. 最大幅の設定 ★ここが重要★ */
+    /* PCでこれ以上大きくしない幅を指定します。例: 1000px */
+    max-width: 500px; 
+    
+    /* 3. 中央寄せの設定 */
+    /* 画面の残り幅を左右に均等に分け、カルーセルを中央に配置します */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* 既存のスタイル */
+    overflow: hidden;
+    position: relative; 
 }
 
 .mySwiper .swiper-wrapper {

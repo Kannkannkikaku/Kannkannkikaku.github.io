@@ -37,6 +37,7 @@
         width: 24px;
         height: 24px;
     }
+    
     .swiper-button-prev,
     .swiper-button-next {
         /* スマートフォンでは矢印が端に寄りすぎないようマージンを少し増やす */
