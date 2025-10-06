@@ -129,6 +129,57 @@ img.main-image {
   margin-top: 20px;
 }
 
+/* ▼ スライダー全体のコンテナ */
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* 好みで調整 */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* ▼ スライドの画像を横並びにする */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  touch-action: pan-y; /* スワイプ対応 */
+}
+
+.slider img {
+  width: 100%;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* ▼ 矢印ボタン */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 0.3em 0.5em;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.arrow:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
 /* フッターリンク */
 .footer-links {
   text-align: center;
