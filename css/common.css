@@ -129,21 +129,20 @@ img.main-image {
   margin-top: 20px;
 }
 
-/* ▼ スライダー全体のコンテナ */
+/* ▼ スライダー用のスタイル（ここに追加！） */
 .slider-container {
   position: relative;
   width: 100%;
-  max-width: 800px; /* 好みで調整 */
+  max-width: 800px;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 16px;
 }
 
-/* ▼ スライドの画像を横並びにする */
 .slider {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  touch-action: pan-y; /* スワイプ対応 */
+  touch-action: pan-y;
 }
 
 .slider img {
@@ -152,7 +151,6 @@ img.main-image {
   display: block;
 }
 
-/* ▼ 矢印ボタン */
 .arrow {
   position: absolute;
   top: 50%;
