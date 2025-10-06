@@ -16,47 +16,44 @@ window.addEventListener('DOMContentLoaded', function () {
   closeMenu(); // 初期化
 });
 
-<script>
-  const slider = document.getElementById("slider");
-  const slides = slider.children;
-  let currentIndex = 0;
-  const totalSlides = slides.length;
+// ▼ ここからスライダーの処理を追加
+let currentSlide = 0;
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slider img');
+const totalSlides = slides.length;
 
-  // スライド更新
-  function updateSlide() {
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+// スライドを移動させる関数
+function showSlide(index) {
+  if (index < 0) {
+    currentSlide = totalSlides - 1;
+  } else if (index >= totalSlides) {
+    currentSlide = 0;
+  } else {
+    currentSlide = index;
   }
+  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
 
-  // 次へ
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlide();
+// 次・前ボタンのイベント
+document.getElementById('nextBtn').addEventListener('click', () => {
+  showSlide(currentSlide + 1);
+});
+document.getElementById('prevBtn').addEventListener('click', () => {
+  showSlide(currentSlide - 1);
+});
+
+// スワイプ操作の処理
+let startX = 0;
+let endX = 0;
+
+slider.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+slider.addEventListener('touchend', (e) => {
+  endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) {
+    showSlide(currentSlide + 1);
+  } else if (endX - startX > 50) {
+    showSlide(currentSlide - 1);
   }
-
-  // 前へ
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateSlide();
-  }
-
-  // ===== スワイプ対応 =====
-  let startX = 0;
-  let endX = 0;
-
-  slider.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  slider.addEventListener("touchend", (e) => {
-    endX = e.changedTouches[0].clientX;
-    handleSwipe();
-  });
-
-  function handleSwipe() {
-    if (startX - endX > 50) {
-      nextSlide();
-    } else if (endX - startX > 50) {
-      prevSlide();
-    }
-  }
-</script>
+});
