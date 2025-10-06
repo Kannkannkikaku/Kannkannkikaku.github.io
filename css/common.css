@@ -132,8 +132,9 @@ img.main-image {
 /* スライダー全体 */
 .slider-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 800px;
+  max-width: 100%;
+  height: auto; 
+  margin-top: 20px;
   overflow: hidden;
 }
 
@@ -175,6 +176,15 @@ img.main-image {
 
 .slider-btn:hover {
   background: rgba(255, 255, 255, 0.9);
+}
+.main-text h2 {
+  font-size: 2rem;
+  margin-top: 40px; 
+} 
+
+.main-text p {
+  font-size: 1.2rem;
+  margin-top: 20px; 
 }
 
 /* フッターリンク */
