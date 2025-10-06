@@ -232,3 +232,54 @@ img.main-image {
   font-weight: bold;
   display: inline-block;
 }
+/* カルーセルコンテナの基準位置を設定 */
+.mySwiper {
+    /* 既存のスタイル (width, height, overflow: hidden;) に加えて、
+       矢印の配置基準となるよう position: relative; が必須です */
+    position: relative;
+    /* その他の既存のスタイルをここに保持 */
+    width: 100%;
+    overflow: hidden; 
+    /* ... */
+}
+
+.mySwiper .swiper-wrapper {
+    box-sizing: content-box; 
+    /* SwiperがJSで動かすため、この要素にoverflow: hidden; は設定しません */
+}
+
+.mySwiper .swiper-slide img {
+    /* 必須: 画像1枚が常にコンテナの幅と高さいっぱいになるように強制 */
+    width: 100%;
+    height: 100%;
+    
+    /* アスペクト比を保ちつつコンテナを覆う */
+    object-fit: cover; 
+}
+
+/* ナビゲーション矢印の共通スタイル */
+.swiper-button-prev,
+.swiper-button-next {
+    /* 矢印をコンテナに対して絶対位置に配置 */
+    position: absolute;
+    /* 矢印を上下の真ん中に配置 */
+    top: 50%;
+    /*transform: translateY(-0%);*/
+    /* 重なり順を確保 (他の要素より手前に表示) */
+    z-index: 10;
+    
+    /* モバイルで見やすいようにサイズを調整することが多いです */
+    /* width/height, color, marginなどを調整 */
+    color: #000; /* 矢印の色 */
+    margin: 0 10px; /* 左右の端からのマージン */
+}
+
+/* 左矢印の位置調整 */
+.swiper-button-prev {
+    left: 0; /* 左端に配置 */
+}
+
+/* 右矢印の位置調整 */
+.swiper-button-next {
+    right: 0; /* 右端に配置 */
+}
