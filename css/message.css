@@ -1,0 +1,45 @@
+/* メッセージ一覧ページ専用CSS */
+
+/* ギャラリー全体のレイアウト */
+.message-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  justify-items: center;
+  margin-top: 30px;
+  padding: 0 10px;
+}
+
+/* 手紙画像の見た目 */
+.letter-img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.letter-img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* 見出し */
+.container h2 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .message-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .letter-img {
+    max-width: 90%;
+  }
+}
