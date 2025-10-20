@@ -44,34 +44,3 @@
   }
 }
 
-/* 拡大画像用モーダル */
-.modal,
-#imgModal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 9999;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  cursor: zoom-out;
-}
-
-.modal.active,
-#imgModal.active {
-  display: flex;
-}
-
-.modal img,
-#imgModal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  display: block;
-  margin: auto;
-  cursor: default;
-}
