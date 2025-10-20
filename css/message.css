@@ -48,13 +48,16 @@
 .modal {
   display: none;
   position: fixed;
-  z-index: 9999;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0,0,0,0.8);
+  z-index: 9999;
+
+  /* 中央揃え */
+  display: flex;
   justify-content: center;
   align-items: center;
+
   cursor: zoom-out;
-  padding: 1rem;
 }
 
 .modal.active {
@@ -67,6 +70,10 @@
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   cursor: default;
+
+  /* 中央揃え確実にするため追加 */
+  display: block;
+  margin: auto;
 }
 
 /* モーダル閉じボタン（今は使わなくてもスタイルだけ用意） */
