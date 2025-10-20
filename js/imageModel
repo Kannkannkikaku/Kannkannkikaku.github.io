@@ -1,0 +1,23 @@
+// 画像モーダル処理
+document.addEventListener("DOMContentLoaded", function () {
+  const images = document.querySelectorAll(".letter-gallery img");
+  const modal = document.createElement("div");
+  modal.classList.add("image-modal");
+  modal.innerHTML = `<img><span class="close-btn">&times;</span>`;
+  document.body.appendChild(modal);
+
+  const modalImg = modal.querySelector("img");
+
+  images.forEach((img) => {
+    img.addEventListener("click", () => {
+      modalImg.src = img.src;
+      modal.classList.add("active");
+    });
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal || e.target.classList.contains("close-btn")) {
+      modal.classList.remove("active");
+    }
+  });
+});
