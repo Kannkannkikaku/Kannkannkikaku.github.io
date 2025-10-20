@@ -43,45 +43,51 @@
     max-width: 90%;
   }
 }
-/* === モーダル表示用 === */
+/* === モーダル（拡大画像） === */
 .modal {
-  display: none; /* 初期は非表示 */
+  display: none; /* 非表示が初期状態 */
   position: fixed;
-  z-index: 1000;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+  cursor: zoom-out; /* 背景クリックで閉じることが分かりやすい */
 }
 
+/* 表示時 */
 .modal.active {
-  display: flex; /* 表示時に中央寄せ */
+  display: flex;
 }
 
+/* 拡大画像 */
 .modal img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.3);
-  animation: zoomIn 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  animation: fadeInZoom 0.3s ease;
 }
 
-/* 閉じるボタン */
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-  user-select: none;
+/* アニメーション効果 */
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* ズームアニメーション */
-@keyframes zoomIn {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* スマホ対応（ほぼ等比縮小だけでOK） */
+@media (max-width: 600px) {
+  .modal img {
+    width: 95%;
+    height: auto;
+  }
 }
