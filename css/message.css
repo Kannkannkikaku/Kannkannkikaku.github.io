@@ -14,7 +14,6 @@
 .letter-img {
   width: 100%;
   max-width: 350px;
-  border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
