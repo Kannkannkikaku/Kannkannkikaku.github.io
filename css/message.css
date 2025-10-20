@@ -43,8 +43,9 @@
     max-width: 90%;
   }
 }
+
 /* 拡大画像用モーダル */
-.image-modal {
+.modal {
   display: none;
   position: fixed;
   z-index: 9999;
@@ -56,11 +57,11 @@
   padding: 1rem;
 }
 
-.image-modal.active {
+.modal.active {
   display: flex;
 }
 
-.image-modal img {
+.modal img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 8px;
@@ -68,7 +69,8 @@
   cursor: default;
 }
 
-.image-modal .close-btn {
+/* モーダル閉じボタン（今は使わなくてもスタイルだけ用意） */
+.modal .close-btn {
   position: absolute;
   top: 1rem;
   right: 1.5rem;
