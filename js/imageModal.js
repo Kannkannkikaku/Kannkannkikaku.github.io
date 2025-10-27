@@ -7,7 +7,7 @@
         // --- 新規追加: タッチ位置と許容誤差の変数 ---
         let startX, startY;
         // 許容する移動距離（これ以上動いたらスクロールとみなす）
-        const THRESHOLD = 10; // 例: 10ピクセル
+        const THRESHOLD = 50; // 例: 10ピクセル
 
         // モーダル作成（ここは変更なし）
         let modal = document.getElementById('imgModal');
