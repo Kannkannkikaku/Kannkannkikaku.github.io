@@ -27,25 +27,21 @@
         // ------------------------------------------------------------------
         // ★★★ 修正箇所: clickイベントを削除し、タッチイベントに置き換える ★★★
         // ------------------------------------------------------------------
-imgs.forEach(img => {
+        imgs.forEach(img => {
             
             // ------------------------------------------------------------------
-            // ★★★ 変更箇所 1: touchstartで座標記録とデフォルト動作を防止 ★★★
+            // ★★★ 変更箇所 1: touchstartからe.preventDefault()を削除 ★★★
+            // ページスクロールを許可するために、ここでは何もしません。
             // ------------------------------------------------------------------
             img.addEventListener('touchstart', function(e) {
                 // 指の初期位置を記録
                 startX = e.touches[0].clientX;
                 startY = e.touches[0].clientY;
-                
-                // 画像へのタッチでは、ブラウザの拡大/ズームを即座に防止
-                // ただし、この preventDefault() は、親要素へのスクロールも止めてしまうため、
-                // 以下の touchend でスクロール時は処理を return します。
-                e.preventDefault(); 
-            }, { passive: false }); // passive: false を設定し、preventDefault()を有効にする
-
+                // e.preventDefault() は削除（スクロールを許可するため）
+            });
             
             // ------------------------------------------------------------------
-            // ★★★ 変更箇所 2: touchendで移動量を判定し、スクロール時は画面をスクロール可能に戻す ★★★
+            // ★★★ 変更箇所 2: touchendでタップと判定されたらズームを防止し、モーダルを開く ★★★
             // ------------------------------------------------------------------
             img.addEventListener('touchend', function(e) {
                 const endX = e.changedTouches[0].clientX;
@@ -54,17 +50,16 @@ imgs.forEach(img => {
                 const deltaX = Math.abs(startX - endX);
                 const deltaY = Math.abs(startY - endY);
 
-                // 許容誤差（THRESHOLD）を超えていたらスクロールとみなし、モーダルは開かない
+                // 許容誤差（THRESHOLD）を超えていたらスクロールとみなし、処理を終了
                 if (deltaX > THRESHOLD || deltaY > THRESHOLD) {
-                    // ★ スクロールと判断した場合は、何もしない（モーダルを開かない）★
                     return; 
                 }
                 
                 // 許容誤差内（タップとみなす）の場合のみモーダル表示処理へ
                 
-                // （touchstartでpreventDefault()済みのため、ここでは不要）
-                // e.preventDefault(); 
-
+                // ★★★ ここで e.preventDefault() を呼ぶことで、タップ時のズームを防止 ★★★
+                e.preventDefault(); 
+                
                 modalImg.src = this.src;
                 modal.style.display = 'flex'; 
                 modal.classList.add('active');
