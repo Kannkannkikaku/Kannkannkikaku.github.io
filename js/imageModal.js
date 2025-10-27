@@ -24,24 +24,21 @@
 
         const modalImg = modal.querySelector('#modalLetter');
 
-        // ------------------------------------------------------------------
-        // ★★★ 修正箇所: clickイベントを削除し、タッチイベントに置き換える ★★★
-        // ------------------------------------------------------------------
         imgs.forEach(img => {
             
             // ------------------------------------------------------------------
-            // ★★★ 変更箇所 1: touchstartからe.preventDefault()を削除 ★★★
-            // ページスクロールを許可するために、ここでは何もしません。
+            // ★★★ 修正箇所 1: touchstartのリスナーを passive: true で設定 ★★★
+            // ブラウザに「スクロールをキャンセルしないリスナーだ」と伝える
             // ------------------------------------------------------------------
             img.addEventListener('touchstart', function(e) {
                 // 指の初期位置を記録
                 startX = e.touches[0].clientX;
                 startY = e.touches[0].clientY;
-                // e.preventDefault() は削除（スクロールを許可するため）
-            });
+            }, { passive: true }); // passive: true が重要
+
             
             // ------------------------------------------------------------------
-            // ★★★ 変更箇所 2: touchendでタップと判定されたらズームを防止し、モーダルを開く ★★★
+            // ★★★ 修正箇所 2: touchendでタップと判定されたらズームを防止し、モーダルを開く ★★★
             // ------------------------------------------------------------------
             img.addEventListener('touchend', function(e) {
                 const endX = e.changedTouches[0].clientX;
@@ -55,9 +52,9 @@
                     return; 
                 }
                 
-                // 許容誤差内（タップとみなす）の場合のみモーダル表示処理へ
+                // 許容誤差内（タップとみなす）の場合
                 
-                // ★★★ ここで e.preventDefault() を呼ぶことで、タップ時のズームを防止 ★★★
+                // ★★★★ 最も重要: ここで preventDefault を呼び出し、タップ時のズームを阻止 ★★★★
                 e.preventDefault(); 
                 
                 modalImg.src = this.src;
@@ -65,13 +62,12 @@
                 modal.classList.add('active');
                 document.documentElement.style.overflow = 'hidden';
                 document.body.style.overflow = 'hidden';
-            });
+            }, { passive: false }); // ここは preventDefault() を有効にするため false
             
             // ------------------------------------------------------------------
-            // ★★★ 変更箇所 3: clickイベントは残す（PC向け） ★★★
+            // ★★★ clickイベントは残す（PC向け） ★★★
             // ------------------------------------------------------------------
             img.addEventListener('click', function(e) {
-                // touchstart/touchend が発火しないPC環境でのみ実行
                 e.preventDefault();
                 modalImg.src = this.src;
                 modal.style.display = 'flex'; 
