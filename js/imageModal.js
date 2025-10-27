@@ -27,37 +27,44 @@
         // ------------------------------------------------------------------
         // ★★★ 修正箇所: clickイベントを削除し、タッチイベントに置き換える ★★★
         // ------------------------------------------------------------------
- imgs.forEach(img => {
+imgs.forEach(img => {
             
             // ------------------------------------------------------------------
-            // ★★★ 変更箇所 1: touchstartで座標を記録 ★★★
+            // ★★★ 変更箇所 1: touchstartで座標記録とデフォルト動作を防止 ★★★
             // ------------------------------------------------------------------
             img.addEventListener('touchstart', function(e) {
                 // 指の初期位置を記録
                 startX = e.touches[0].clientX;
                 startY = e.touches[0].clientY;
-            });
+                
+                // 画像へのタッチでは、ブラウザの拡大/ズームを即座に防止
+                // ただし、この preventDefault() は、親要素へのスクロールも止めてしまうため、
+                // 以下の touchend でスクロール時は処理を return します。
+                e.preventDefault(); 
+            }, { passive: false }); // passive: false を設定し、preventDefault()を有効にする
+
             
             // ------------------------------------------------------------------
-            // ★★★ 変更箇所 2: touchendで移動量を判定し、タップとみなす ★★★
+            // ★★★ 変更箇所 2: touchendで移動量を判定し、スクロール時は画面をスクロール可能に戻す ★★★
             // ------------------------------------------------------------------
             img.addEventListener('touchend', function(e) {
-                // 最後の指の位置を取得
                 const endX = e.changedTouches[0].clientX;
                 const endY = e.changedTouches[0].clientY;
 
-                // 移動量を計算 (絶対値を使用)
                 const deltaX = Math.abs(startX - endX);
                 const deltaY = Math.abs(startY - endY);
 
-                // 許容誤差（THRESHOLD）を超えていたらスクロールとみなし、処理を終了
+                // 許容誤差（THRESHOLD）を超えていたらスクロールとみなし、モーダルは開かない
                 if (deltaX > THRESHOLD || deltaY > THRESHOLD) {
-                    return;
+                    // ★ スクロールと判断した場合は、何もしない（モーダルを開かない）★
+                    return; 
                 }
                 
                 // 許容誤差内（タップとみなす）の場合のみモーダル表示処理へ
-                e.preventDefault(); // デフォルト動作（ズームなど）を防止
                 
+                // （touchstartでpreventDefault()済みのため、ここでは不要）
+                // e.preventDefault(); 
+
                 modalImg.src = this.src;
                 modal.style.display = 'flex'; 
                 modal.classList.add('active');
@@ -66,15 +73,13 @@
             });
             
             // ------------------------------------------------------------------
-            // ★★★ 変更箇所 3: clickイベントを残す（PC向け） ★★★
-            // touchstart/touchend に置き換えたので、clickイベントは不要ですが、
-            // PCでの操作を確保するために残します。
+            // ★★★ 変更箇所 3: clickイベントは残す（PC向け） ★★★
             // ------------------------------------------------------------------
             img.addEventListener('click', function(e) {
                 // touchstart/touchend が発火しないPC環境でのみ実行
                 e.preventDefault();
                 modalImg.src = this.src;
-                modal.style.display = 'flex';
+                modal.style.display = 'flex'; 
                 modal.classList.add('active');
                 document.documentElement.style.overflow = 'hidden';
                 document.body.style.overflow = 'hidden';
