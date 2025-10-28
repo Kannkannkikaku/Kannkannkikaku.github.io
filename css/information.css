@@ -1,0 +1,39 @@
+/* =============================
+   インフォメーションページ専用追加分
+============================= */
+
+.info-block {
+  background-color: #fafafa;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 700px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.info-map {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.info-place {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+  margin: 8px 0;
+}
+
+.info-date {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 8px;
+}
