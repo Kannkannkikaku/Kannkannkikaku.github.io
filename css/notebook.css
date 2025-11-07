@@ -8,31 +8,30 @@ body{
 
 /* letterBook-viewport のスタイルを修正 */
 .letterBook-viewport{
-	overflow:hidden;
-	width:100%;
-	/* ここで letterBook の表示に必要な最低限の高さを確保 */
-	/* letterBook の高さが 600px なので、それ以上を設定 */
-	height: 600px; /* ★ 高さを固定値で指定 ★ */
-	margin: 40px auto;
-
+    overflow:hidden;
+    width:100%;
+    height: auto; 
+    margin: 20px auto; /* 見出しの下の余白 */
+    text-align: center;
+    
+    /* ★フッターとの重なりを解消するために下部にパディングを追加★ */
+    padding-bottom: 120px; /* この値を調整してフッターが隠れないようにする */
 }
 
 .letterBook-viewport .container{
-	position:relative; /* absolute -> relative に戻す */
+	position: relative;
 	width:100%;
 	height:100%;
 	margin:auto;
 }
 
 .letterBook-viewport .letterBook{
-    /* 修正前: width:922px; height:600px; */
-    
-    /* ウィンドウ幅の 70% を本の幅とする（相対的な幅） */
-    width: 70vw; 
-    
-    /* 高さは、幅を基準にしたアスペクト比で計算する（例: 幅922/高さ600 = 1.53 のアスペクト比） */
-    /* calc(70vw / 1.53) で高さを設定 */
-    height: calc(70vw / 1.536); /* 922/600 = 1.5366... */
+    display: block;
+    /* CSSのサイズ指定はJSが上書きしますが、レスポンシブな初期値として維持 */
+    width: 70vw;
+    height: calc(70vw / 1.536);
+    /* turn.js が生成する要素に影響が出ないよう、position: relative 以外は削除 */
+    position: relative; 
 }
 
 .letterBook-viewport .page{

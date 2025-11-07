@@ -41,7 +41,7 @@
     .swiper-button-prev,
     .swiper-button-next {
         /* スマートフォンでは矢印が端に寄りすぎないようマージンを少し増やす */
-        margin: 0 5px; 
+        margin: 0 5px;
         /* 矢印のサイズを少し小さくしてコンテンツの邪魔にならないようにする */
         /* font-size: 20px; などの調整も有効です */
         
@@ -50,17 +50,12 @@
         /* left: 5px; */
         /* right: 5px; */
     }
-
-    /* ★追加：スマホ・タブレット向けに letterBook の幅を拡大★ */
-    .letterBook-viewport .letterBook {
-        /* ウィンドウ幅の 90% を本の幅とする (デスクトップの 70% から拡大) */
-        width: 90vw;
-        /* 高さは幅に追従して自動で再計算される */
-        height: calc(90vw / 1.536);
+    .letterBook-viewport .letterBook{
+        width: 90vw; /* 90%に拡大 */
+        height: calc(90vw / 1.536); 
     }
-    .letterBook-viewport .page {
-        /* ページの幅も本の幅の半分に追従 */
-        width: calc(90vw / 2);
-        height: calc(90vw / 1.536);
+    .letterBook-viewport .page{
+        width: calc(90vw / 2); /* 90%に拡大 */
+        height: calc(90vw / 1.536); 
     }
 }
