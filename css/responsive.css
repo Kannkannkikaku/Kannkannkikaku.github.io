@@ -50,4 +50,17 @@
         /* left: 5px; */
         /* right: 5px; */
     }
+
+    /* ★追加：スマホ・タブレット向けに letterBook の幅を拡大★ */
+    .letterBook-viewport .letterBook {
+        /* ウィンドウ幅の 90% を本の幅とする (デスクトップの 70% から拡大) */
+        width: 90vw;
+        /* 高さは幅に追従して自動で再計算される */
+        height: calc(90vw / 1.536);
+    }
+    .letterBook-viewport .page {
+        /* ページの幅も本の幅の半分に追従 */
+        width: calc(90vw / 2);
+        height: calc(90vw / 1.536);
+    }
 }

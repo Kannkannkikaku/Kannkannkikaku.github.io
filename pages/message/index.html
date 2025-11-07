@@ -62,10 +62,9 @@
             <script type="text/javascript">
 
             function calculateBookSize() {
-                const viewportWidth = $(window).width();
-                
-                // 70vw をピクセルに変換
-                const newWidth = Math.round(viewportWidth * 0.70);
+                // letterBook の現在の計算済みピクセル幅を取得
+                const $book = $('.letterBook');
+                const newWidth = $book.width();
                 
                 // 922/600 = 1.536 のアスペクト比を維持して高さを計算
                 const newHeight = Math.round(newWidth / 1.536);
@@ -80,11 +79,11 @@
                 // 1. turn.js の初期化
                 $('.letterBook').turn({
                     // turn.js の設定から相対サイズ指定を削除し、計算したピクセル値を渡す
-                    width: initialSize.width, 
-                    height: initialSize.height, 
+                    width: initialSize.width,
+                    height: initialSize.height,
                     elevation: 50,
                     gradients: true,
-                    autoCenter: true 
+                    autoCenter: true
                 });
             // 1. 初期ロード時の中央寄せ補正（translate(-75%, -50%) の適用）
                 // turn.js の初期化後に一度だけ実行される
@@ -121,9 +120,9 @@
                     // turn.js のサイズを直接ピクセル値で再設定し、リサイズ処理を強制実行
                     $('.letterBook').turn('size', newSize.width, newSize.height);
                     
-                    // turn('resize') は不要。CSS の transform を再適用
+                    // turn完了後と同じ標準位置に戻す
                     $('.letterBook').css({
-                        'transform': 'translate(-50%, -50%)' // turn完了後と同じ標準位置に戻す
+                        'transform': 'translate(-50%, -50%)' 
                     });
 
                 }).trigger('resize');
