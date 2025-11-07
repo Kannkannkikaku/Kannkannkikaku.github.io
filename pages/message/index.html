@@ -77,13 +77,33 @@
                         // Auto center this flipbook
                         autoCenter: true
                 });
-
+        // 1. 初期ロード時の中央寄せ補正（translate(-75%, -50%) の適用）
+                // turn.js の初期化後に一度だけ実行される
                 $('.letterBook').css({
                     'position': 'fixed',
                     'top': '50%',
                     'left': '50%',
-                    'transform': 'translate(-50%, -50%)',
+                    // 初期ロード時のみ左に寄せる (-50% + 25% = -75%)
+                    'transform': 'translate(-75%, -50%)', 
                     'margin': '0'
+                });
+
+
+                // 2. ページフリップのアニメーションが完了した際のイベント処理
+                $('.letterBook').bind('turned', function(event, page, view) {
+                    // ページフリップが完了したら、標準の中央寄せ (-50%) に戻す
+                    // これにより、本はウィンドウの中心に配置される
+                    $(this).css({
+                        'transform': 'translate(-50%, -50%)'
+                    });
+                });
+                
+                // 3. (任意) ページめくり中に transform がリセットされるのを防ぐため、
+                //    めくり開始時にも標準の中央寄せを設定しておく
+                $('.letterBook').bind('turning', function(event, page, view) {
+                    $(this).css({
+                        'transform': 'translate(-50%, -50%)'
+                    });
                 });
             }
 
