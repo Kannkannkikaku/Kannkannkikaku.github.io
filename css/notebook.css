@@ -25,17 +25,25 @@ body{
 }
 
 .letterBook-viewport .letterBook{
-	width:922px;
-	height:600px;
-	
+    /* 修正前: width:922px; height:600px; */
+    
+    /* ウィンドウ幅の 70% を本の幅とする（相対的な幅） */
+    width: 70vw; 
+    
+    /* 高さは、幅を基準にしたアスペクト比で計算する（例: 幅922/高さ600 = 1.53 のアスペクト比） */
+    /* calc(70vw / 1.53) で高さを設定 */
+    height: calc(70vw / 1.536); /* 922/600 = 1.5366... */
 }
 
 .letterBook-viewport .page{
-	width:461px;
-	height:600px;
-	background-color:white;
-	background-repeat:no-repeat;
-	background-size:100% 100%;
+    /* ページの幅も本全体の半分の相対的な幅で設定 */
+    width: calc(70vw / 2); /* 本の幅の半分 */
+    
+    /* ページの高さは本全体と同じ相対的な高さ */
+    height: calc(70vw / 1.536); 
+    background-color:white;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
 }
 
 .letterBook .page{

@@ -61,30 +61,39 @@
 
             <script type="text/javascript">
 
+            function calculateBookSize() {
+                const viewportWidth = $(window).width();
+                
+                // 70vw をピクセルに変換
+                const newWidth = Math.round(viewportWidth * 0.70);
+                
+                // 922/600 = 1.536 のアスペクト比を維持して高さを計算
+                const newHeight = Math.round(newWidth / 1.536);
+                
+                return { width: newWidth, height: newHeight };
+            }
+
             function loadApp() {
+                // 初回ロード時にサイズを計算
+                const initialSize = calculateBookSize();
 
-                // Create the flipbook
-
+                // 1. turn.js の初期化
                 $('.letterBook').turn({
-                        // Width
-                        width:922,
-                        // Height
-                        height:600,
-                        // Elevation
-                        elevation: 20,
-                        // Enable gradients
-                        gradients: true,
-                        // Auto center this flipbook
-                        autoCenter: true
+                    // turn.js の設定から相対サイズ指定を削除し、計算したピクセル値を渡す
+                    width: initialSize.width, 
+                    height: initialSize.height, 
+                    elevation: 50,
+                    gradients: true,
+                    autoCenter: true 
                 });
-        // 1. 初期ロード時の中央寄せ補正（translate(-75%, -50%) の適用）
+            // 1. 初期ロード時の中央寄せ補正（translate(-75%, -50%) の適用）
                 // turn.js の初期化後に一度だけ実行される
                 $('.letterBook').css({
                     'position': 'fixed',
                     'top': '50%',
                     'left': '50%',
                     // 初期ロード時のみ左に寄せる (-50% + 25% = -75%)
-                    'transform': 'translate(-75%, -50%)', 
+                    'transform': 'translate(-75%, -50%)',
                     'margin': '0'
                 });
 
@@ -105,6 +114,19 @@
                         'transform': 'translate(-50%, -50%)'
                     });
                 });
+                // 4. ウィンドウサイズ変更時にリサイズ機能を呼び出す
+                $(window).bind('resize', function(){
+                    const newSize = calculateBookSize();
+                    
+                    // turn.js のサイズを直接ピクセル値で再設定し、リサイズ処理を強制実行
+                    $('.letterBook').turn('size', newSize.width, newSize.height);
+                    
+                    // turn('resize') は不要。CSS の transform を再適用
+                    $('.letterBook').css({
+                        'transform': 'translate(-50%, -50%)' // turn完了後と同じ標準位置に戻す
+                    });
+
+                }).trigger('resize');
             }
 
             // Load the HTML4 version if there's not CSS transform
