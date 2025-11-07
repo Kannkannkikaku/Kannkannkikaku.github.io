@@ -1,100 +1,150 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>メッセージ一覧</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="../../images/kann-favicon.png">
-  <link rel="stylesheet" href="../../css/common.css">
-  <link rel="stylesheet" href="../../css/responsive.css">
-  <link rel="stylesheet" href="../../css/animation.css">
-  <link rel="stylesheet" href="../../css/message.css">
-  <script src="../../js/toggleMenu.js"></script>
-  <script src="../../js/animation.js"></script>
-  <script src="../../js/imageModal.js"></script>
+    <meta charset="UTF-8">
+    <title>メッセージ一覧</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../images/kann-favicon.png">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <link rel="stylesheet" href="../../css/message.css">
+    
+    
+
+    <script src="../../js/toggleMenu.js"></script>
+    <script src="../../js/animation.js"></script>
+    <script src="../../js/imageModal.js"></script>
+    <!-- ページフリップのプラグイン -->
+    <script type="text/javascript" src="../../js/extras/jquery.min.1.7.js"></script>
+    <script type="text/javascript" src="../../js/extras/modernizr.2.5.3.min.js"></script>
+    
 </head>
 <body class="page-sub">
     <button class="menu-btn" onclick="toggleMenu()">
-      <img src="../../images/menu.png" alt="メニュー">
+        <img src="../../images/menu.png" alt="メニュー">
     </button>
     <!--headerここから-->
     <header>
-      <div class="header">
-        <div class="header-title">
-          <a href="../../index.html" class="logo">Kannkann企画</a>
-          <span class="current-page">＞ メッセージ</span>
+        <div class="header">
+            <div class="header-title">
+                <a href="../../index.html" class="logo">Kannkann企画</a>
+                <span class="current-page">＞ メッセージ</span>
+            </div>
         </div>
-      </div>
-      <nav id="menu" class="side-menu">
-        <a href="../message/"><img src="../../images/message.png" alt="メッセージ">メッセージ一覧</a>
-        <a href="../illust/"><img src="../../images/illust.png" alt="イラスト">イラスト</a>
-        <a href="../information/"><img src="../../images/information.png" alt="インフォ">インフォメーション</a>
-        <a href="../../index.html"><img src="../../images/home.png" alt="トップ">トップページ</a>
-      </nav>
-      <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+        <nav id="menu" class="side-menu">
+            <a href="../message/"><img src="../../images/message.png" alt="メッセージ">メッセージ一覧</a>
+            <a href="../illust/"><img src="../../images/illust.png" alt="イラスト">イラスト</a>
+            <a href="../information/"><img src="../../images/information.png" alt="インフォ">インフォメーション</a>
+            <a href="../../index.html"><img src="../../images/home.png" alt="トップ">トップページ</a>
+        </nav>
+        <div id="overlay" class="overlay" onclick="closeMenu()"></div>
     </header>
     <!--headerここまで-->
-  <div id="page-content">
-    <!--mainここから-->
-    <main>
-      <div class="container">
-        <h2>📨 ファンの皆様からのメッセージ</h2>
+    <div id="page-content">
+        <!--mainここから-->
+        <main>
+            <div class="container">
+                <h2>📨 ファンの皆様からのメッセージ</h2>
+            </div>
+            
+            <div class = "letterBook-viewport">
+                <div class = "container">
+                    <div class ="letterBook">
+                        <div style = "background-image: url(../../messages/楽譜.jpg);"></div>
+                        <div style = "background-image: url(../../messages/楽譜.jpg);"></div>
+                        <div style = "background-image: url(../../messages/楽譜.jpg);"></div>
+                        <div style = "background-image: url(../../messages/楽譜.jpg);"></div>
+                    </div>
+                </div>
+            </div>
 
-        <!-- ✅ 画像ギャラリー -->
-        <div class="message-gallery">
-          <img src="../../messages/letter-A.png" alt="letter-A" class="letter-img">
-          <img src="../../messages/letter-B.png" alt="letter-B" class="letter-img">
-          <img src="../../messages/letter-C.png" alt="letter-C" class="letter-img">
-          <img src="../../messages/letter-D.png" alt="letter-D" class="letter-img">
-        </div>
+            <script type="text/javascript">
 
-      </div>
-    </main>
-    <!--mainここまで-->
+            function loadApp() {
 
-    <!--footerここから-->
-    <footer>
-      
-      <div class="footer-links">
-        <a href="../message/index.html">メッセージ</a>|
-        <a href="../illust/index.html">イラスト</a>|
-        <a href="../information/index.html">インフォ</a>|
-        <a href="../../index.html">TOP</a>
-      </div>
-      
-      <div class="footer-social">
-      <a href="https://x.com/kannkikaku?s=21&t=5o0lw-318r4fDGVlBy44OQ" target="_blank" rel="noopener">
-        <img src="../../images/X.png" alt="Xアカウント" class="x-icon">
-      </a>
-      </div>
+                // Create the flipbook
 
-      <div class="footer-copy">
-        © 菅叶和誕生日企画 2025 some rights reserved.
-      </div>
+                $('.letterBook').turn({
+                        // Width
+                        width:922,
+                        // Height
+                        height:600,
+                        // Elevation
+                        elevation: 20,
+                        // Enable gradients
+                        gradients: true,
+                        // Auto center this flipbook
+                        autoCenter: true
+                });
 
-    </footer>
-    <!--footerここまで-->
-  </div>
+                $('.letterBook').css({
+                    'position': 'fixed',
+                    'top': '50%',
+                    'left': '50%',
+                    'transform': 'translate(-50%, -50%)',
+                    'margin': '0'
+                });
+            }
 
-  <div class="bottom-nav">
-    <a href="../message/index.html">
-      <img src="../../images/message.png" alt="メッセージ">
-      <span>メッセージ</span>
-    </a>
-    <a href="../illust/index.html">
-      <img src="../../images/illust.png" alt="イラスト">
-      <span>イラスト</span>
-    </a>
-    <a href="../information/index.html">
-      <img src="../../images/information.png" alt="インフォ">
-      <span>インフォ</span>
-    </a>
-    <a href="../../index.html">
-      <img src="../../images/home.png" alt="TOPに戻る">
-      <span>TOP</span>
-    </a>
-  </div>
+            // Load the HTML4 version if there's not CSS transform
 
-  <script src="../../js/transition.js"></script>
+            yepnope({
+                test : Modernizr.csstransforms,
+                yep: ['../../js/lib/turn.js'],
+                nope: ['../../js/lib/turn.html4.min.js'],
+                both: ['../../css/notebook.css'],
+                complete: loadApp
+            });
+
+            </script>
+
+        </main>
+        <!--mainここまで-->
+
+        <!--footerここから-->
+        <footer>
+            
+            <div class="footer-links">
+                <a href="../message/index.html">メッセージ</a>|
+                <a href="../illust/index.html">イラスト</a>|
+                <a href="../information/index.html">インフォ</a>|
+                <a href="../../index.html">TOP</a>
+            </div>
+            
+            <div class="footer-social">
+            <a href="https://x.com/kannkikaku?s=21&t=5o0lw-318r4fDGVlBy44OQ" target="_blank" rel="noopener">
+                <img src="../../images/X.png" alt="Xアカウント" class="x-icon">
+            </a>
+            </div>
+
+            <div class="footer-copy">
+                © 菅叶和誕生日企画 2025 some rights reserved.
+            </div>
+
+        </footer>
+        <!--footerここまで-->
+    </div>
+
+    <div class="bottom-nav">
+        <a href="../message/index.html">
+            <img src="../../images/message.png" alt="メッセージ">
+            <span>メッセージ</span>
+        </a>
+        <a href="../illust/index.html">
+            <img src="../../images/illust.png" alt="イラスト">
+            <span>イラスト</span>
+        </a>
+        <a href="../information/index.html">
+            <img src="../../images/information.png" alt="インフォ">
+            <span>インフォ</span>
+        </a>
+        <a href="../../index.html">
+            <img src="../../images/home.png" alt="TOPに戻る">
+            <span>TOP</span>
+        </a>
+    </div>
+
+    <script src="../../js/transition.js"></script>
 </body>
 </html>
