@@ -12,8 +12,8 @@ body{
 	transform: translate(-3%, -20%);
     overflow:hidden;
     width:100%;
-    height: auto;
-    margin: 20px auto; /* 見出しの下の余白 */
+    
+    margin: auto; /* 見出しの下の余白 */
     text-align: center;
     
     /* ★フッターとの重なりを解消するために下部にパディングを追加★ */
