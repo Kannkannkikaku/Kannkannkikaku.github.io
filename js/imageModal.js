@@ -1,15 +1,15 @@
 // 画像クリックで拡大表示（モーダル表示機能）
 (function() {
     document.addEventListener('DOMContentLoaded', function () {
-        const imgs = document.querySelectorAll('.letter-img');
-        if (!imgs.length) return;
+        // ★修正点 1: イベントリスナーの対象を親要素である .letterBook に設定★
+        const letterBook = document.querySelector('.letterBook-viewport .letterBook');
+        if (!letterBook) return;
 
-        // --- 新規追加: タッチ位置と許容誤差の変数 ---
+        // --- タッチ位置と許容誤差の変数 ---
         let startX, startY;
-        // 許容する移動距離（これ以上動いたらスクロールとみなす）
-        const THRESHOLD = 10; // 例: 10ピクセル
+        const THRESHOLD = 10; 
 
-        // モーダル作成（ここは変更なし）
+        // モーダル作成（変更なし）
         let modal = document.getElementById('imgModal');
         if (!modal) {
             modal = document.createElement('div');
@@ -19,81 +19,30 @@
             document.body.appendChild(modal);
         }
         
-        // 初期表示のチラつき防止
         modal.style.display = 'none';
 
         const modalImg = modal.querySelector('#modalLetter');
 
-        imgs.forEach(img => {
+        // --- モーダル表示を行う共通関数 ---
+        const openModal = function(targetElement) {
+            // 背景画像をCSSから取得
+            let imageUrl = window.getComputedStyle(targetElement).getPropertyValue('background-image');
             
-            // ------------------------------------------------------------------
-            // ★★★ 修正箇所 1: touchstartのリスナーを passive: true で設定 ★★★
-            // ブラウザに「スクロールをキャンセルしないリスナーだ」と伝える
-            // ------------------------------------------------------------------
-            img.addEventListener('touchstart', function(e) {
-                // 指の初期位置を記録
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-            }, { passive: true }); // passive: true が重要
-
+            imageUrl = imageUrl.replace(/^url\(['"]?/, '').replace(/['"]?\)$/, '');
             
-            // ------------------------------------------------------------------
-            // ★★★ 修正箇所 2: touchendでタップと判定されたらズームを防止し、モーダルを開く ★★★
-            // ------------------------------------------------------------------
-            img.addEventListener('touchend', function(e) {
-                const endX = e.changedTouches[0].clientX;
-                const endY = e.changedTouches[0].clientY;
+            // ページがめくれ途中（シャドウ状態）でないことを確認し、画像が設定されているか確認
+            if (targetElement.classList.contains('shadow') || imageUrl.trim() === 'none' || imageUrl.length < 5) {
+                return;
+            }
 
-                const deltaX = Math.abs(startX - endX);
-                const deltaY = Math.abs(startY - endY);
-
-                // 許容誤差（THRESHOLD）を超えていたらスクロールとみなし、処理を終了
-                if (deltaX > THRESHOLD || deltaY > THRESHOLD) {
-                    return; 
-                }
-                
-                // 許容誤差内（タップとみなす）の場合
-                
-                // ★★★★ 最も重要: ここで preventDefault を呼び出し、タップ時のズームを阻止 ★★★★
-                e.preventDefault(); 
-                
-                modalImg.src = this.src;
-                modal.style.display = 'flex'; 
-                modal.classList.add('active');
-                document.documentElement.style.overflow = 'hidden';
-                document.body.style.overflow = 'hidden';
-            }, { passive: false }); // ここは preventDefault() を有効にするため false
-            
-            // ------------------------------------------------------------------
-            // ★★★ clickイベントは残す（PC向け） ★★★
-            // ------------------------------------------------------------------
-            img.addEventListener('click', function(e) {
-                e.preventDefault();
-                modalImg.src = this.src;
-                modal.style.display = 'flex'; 
-                modal.classList.add('active');
-                document.documentElement.style.overflow = 'hidden';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        // ------------------------------------------------------------------
-        // ... (モーダルを閉じる処理は変更なし) ...
+            modalImg.src = imageUrl;
+            modal.style.display = 'flex'; 
+            modal.classList.add('active');
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+        };
         
-        // 背景クリックで閉じる
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Escキーで閉じる
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-
+        // --- モーダルを閉じる処理 (変更なし) ---
         function closeModal() {
             modal.classList.remove('active');
             modal.style.display = 'none'; 
@@ -101,5 +50,66 @@
             document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
         }
+
+        // =======================================================
+        // ★★★ 修正点 2: イベント委譲で動的な .page 要素に対応 ★★★
+        // =======================================================
+        
+        // touchstartのリスナー（イベント委譲ではない）
+        letterBook.addEventListener('touchstart', function(e) {
+            // .page 要素でなければ処理しない
+            if (!e.target.closest('.page')) return;
+            
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        // touchendのリスナー（イベント委譲）
+        letterBook.addEventListener('touchend', function(e) {
+            const pageElement = e.target.closest('.page');
+            if (!pageElement) return; // .page 要素でなければ処理しない
+
+            const endX = e.changedTouches[0].clientX;
+            const endY = e.changedTouches[0].clientY;
+
+            const deltaX = Math.abs(startX - endX);
+            const deltaY = Math.abs(startY - endY);
+
+            // 許容誤差（THRESHOLD）を超えていたらスクロールとみなし、処理を終了
+            if (deltaX > THRESHOLD || deltaY > THRESHOLD) {
+                return; 
+            }
+            
+            // タップとみなす場合
+            e.preventDefault(); 
+            openModal(pageElement); // タップされた要素を渡す
+            
+        }, { passive: false });
+        
+        // clickイベントのリスナー（イベント委譲: PC向け）
+        letterBook.addEventListener('click', function(e) {
+            const pageElement = e.target.closest('.page');
+            if (!pageElement) return; // .page 要素でなければ処理しない
+
+            // turn.js のページめくりと競合しないよう、処理を制御
+            e.preventDefault();
+            // ページがめくれていない（ターン操作中でない）ことを確認
+            if (e.detail === 1) { 
+                 openModal(pageElement); // クリックされた要素を渡す
+            }
+        });
+        
+        // --- モーダルを閉じる処理 (変更なし) ---
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
     });
 })();

@@ -50,9 +50,13 @@
         /* left: 5px; */
         /* right: 5px; */
     }
+    .letterBook-viewport{
+        transform: translate(-3%, -20%);
+    }
     .letterBook-viewport .letterBook{
         width: 90vw; /* 90%に拡大 */
-        height: calc(90vw / 1.536); 
+        height: calc(90vw / 1.536);
+        scale: 1;
     }
     .letterBook-viewport .page{
         width: calc(90vw / 2); /* 90%に拡大 */
