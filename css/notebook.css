@@ -8,15 +8,15 @@ body{
 
 /* letterBook-viewport のスタイルを修正 */
 .letterBook-viewport{
-	position: relative;
-	transform: translate(-3%, -20%);
     overflow:hidden;
     width:100%;
-    
-    margin: auto; /* 見出しの下の余白 */
+    height: auto; 
+    /* 既存の margin: 20px auto; は、見出しの下の余白として機能します */
+    margin: 20px auto; 
     text-align: center;
     
-    /* ★フッターとの重なりを解消するために下部にパディングを追加★ */
+    /* フッターとの重なりを解消するための余白を確保 */
+    
 }
 
 .letterBook-viewport .container{
