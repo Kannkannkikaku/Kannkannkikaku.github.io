@@ -314,7 +314,7 @@ img.main-image {
     flex-direction: column;
     /* 画面幅に合わせて、最小300pxのカードを自動で並べる */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 40px;
     align-items: stretch;
     min-height: 180px;
 }
