@@ -402,9 +402,3 @@ img.main-image {
   line-height: 1.4;
 }
 
-/* スマホ表示では中央寄せのまま */
-@media (max-width: 767px) {
-  .intro-section h3 {
-    text-align: center;
-  }
-}
