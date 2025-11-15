@@ -310,7 +310,8 @@ img.main-image {
 /* --- 情報カードエリアのレイアウト --- */
 .content-cards {
     /* グリッドコンテナとして設定 */
-    display: grid;
+    display: flex;
+    flex-direction: column;
     /* 画面幅に合わせて、最小300pxのカードを自動で並べる */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
@@ -367,22 +368,27 @@ img.main-image {
 
 /* --- 【画像ありカード】の横並び設定 (PC: 769px以上) --- */
 @media (min-width: 769px) { 
+    .content-cards{
+      max-width: 800px;
+    }
     .info-card.card-message,
     .info-card.card-illust,
     .info-card.card-info{
         display: flex;
         flex-direction: row; 
         height: 170px; 
-        align-items: stretch; /* 子要素の高さを揃える */
+        align-items: center; /* 子要素の高さを揃える */
+        
         padding: 0; 
         overflow: hidden; 
     }
 
     .info-card .card-image {
         width: 40%;
-        height: 100%;
+        scale: 0.6;
+        height: auto;
         flex-shrink: 0;
-        padding: 1.6rem;
+        padding: 0.8rem
     }
     
 
