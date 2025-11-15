@@ -336,7 +336,7 @@ img.main-image {
 
 .news-list li {
   margin: 0.5rem 0;
-  font-size: 1.25rem; /* 少し大きめ文字 */
+  font-size: 1rem; /* 少し大きめ文字 */
   font-weight: 500;
 }
 
