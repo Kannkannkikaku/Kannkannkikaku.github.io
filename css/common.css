@@ -311,12 +311,12 @@ img.main-image {
   text-align: center;
 }
 
-/* 見出し（生放送予定スタイル） */
+/* 見出し */
 .intro-section h2 {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  text-align: left; /* PCは左寄せ、SPでは後で上書き */
+  text-align: left; 
 }
 
 .intro-section h3 {
@@ -404,7 +404,6 @@ img.main-image {
 
 /* スマホ表示では中央寄せのまま */
 @media (max-width: 767px) {
-  .intro-section h2,
   .intro-section h3 {
     text-align: center;
   }
