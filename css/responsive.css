@@ -62,4 +62,25 @@
         width: calc(90vw / 2); /* 90%に拡大 */
         height: calc(90vw / 1.536); 
     }
+
+    .sub-card {
+    /* デフォルトの row を column に上書きして縦積み（モバイル向け） */
+    flex-direction: column; 
+    height: auto; /* モバイルでは高さを自動に戻す */
+    }
+
+    /* 子要素の幅も 100% に戻す */
+    .sub-card-img,
+    .sub-card-text {
+        width: 100%;
+    }
+
+    .sub-card-img {
+        height: auto; /* 画像の高さを自動に戻す */
+    }
+
+    .content-cards {
+        /* スマホでは1列表示に切り替え */
+        grid-template-columns: 1fr;
+    }
 }
