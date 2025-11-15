@@ -136,12 +136,12 @@ img.main-image {
 }
 
 .main-text h3 {
-  text-align: center;
+  text-align: left;
   margin-top: 40px;
 }
 
 .main-text p {
-  text-align: center;
+  text-align: left;
   margin-top: 20px;
 }
 
