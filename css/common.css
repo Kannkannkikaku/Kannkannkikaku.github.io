@@ -138,11 +138,15 @@ img.main-image {
 .main-text h3 {
   text-align: left;
   margin-top: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .main-text p {
   text-align: left;
   margin-top: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 /* スライダー全体 */
