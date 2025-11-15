@@ -384,7 +384,7 @@ img.main-image {
     }
 
     .info-card .card-image {
-        width: 40%;
+        width: 60%;
         scale: 0.6;
         height: auto;
         flex-shrink: 0;
@@ -395,7 +395,7 @@ img.main-image {
     
     /* ★修正: テキストラッパーのスタイル★ */
     .card-text-content {
-        width: 60%; /* 画像の 35% に対し、残りの 65% を確保 */
+        width: 40%; /* 画像の 35% に対し、残りの 65% を確保 */
         display: flex;
         flex-direction: column;
         justify-content: center; /* 垂直中央寄せ */
