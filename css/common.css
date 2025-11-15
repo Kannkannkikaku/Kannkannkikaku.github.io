@@ -111,6 +111,16 @@ body {
 .container {
   text-align: center;
   padding: 40px 20px;
+  /* ★追加: 最大幅を設定し、大きな画面での広がりを制限★ */
+  max-width: 1200px; /* ★適切な最大幅をピクセルで指定 (例: 1200px)★ */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* mainタグにも適用することで、コンテンツ全体の配置を安定させる (任意) */
+main {
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 img.main-image {
