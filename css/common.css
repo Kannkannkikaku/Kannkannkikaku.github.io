@@ -308,7 +308,7 @@ img.main-image {
   width: 90%;
   max-width: 900px;
   margin: 2rem auto 4rem;
-  text-align: center;
+  text-align: left;
 }
 
 /* 見出し */
