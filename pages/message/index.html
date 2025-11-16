@@ -65,7 +65,8 @@
 
             <script type="text/javascript">
                 const ASPECT_RATIO = 1.536; // 922 / 600
-                
+                const TOTAL_PAGES = 50; // ★総ページ数: 50ページを設定★
+
                 // 現在のウィンドウ幅に基づいて、本の新しいサイズ（ピクセル値）を計算する関数
                 function calculateBookSize() {
                     const viewportWidth = $(window).width();
@@ -88,8 +89,8 @@
 
                     // 1. turn.js の初期化: ピクセル値で初期化
                     $('.letterBook').turn({
-                        width: initialSize.width, 
-                        height: initialSize.height, 
+                        width: initialSize.width,
+                        height: initialSize.height,
                         elevation: 20,
                         gradients: true,
                         autoCenter: true
@@ -97,6 +98,7 @@
 
                     // 2. センタリングの調整とイベントリスナーの設定
                     const $book = $('.letterBook');
+                    const $pageInput = $('#page-input');
 
                     // ★センタリングとリサイズを実行する共通関数★
                     function applyCenteringAndResize() {
@@ -111,12 +113,18 @@
                         $book.css({
                             'position': 'relative',
                             'left': '50%',
-                            'transform': 'translate(-50%, 5%)' 
+                            'transform': 'translate(-50%, 5%)'
+
                         });
                     }
                     
                     // 3. イベントハンドラの設定
                     
+                    $book.bind('turned', function(event, page) {
+                        // 現在の表示ページ番号を input に反映
+                        $pageInput.val(page); 
+                    });
+
                     // ページフリップイベント: turn.js の挙動後に位置をリセット
                     $book.bind('turned turning', function() {
                         applyCenteringAndResize();
@@ -126,6 +134,37 @@
                     $(window).bind('resize', function(){
                         applyCenteringAndResize();
                     }).trigger('resize'); // ページロード時に一度実行
+
+                    const $jumpButton = $('#jump-button');
+
+                    function goToPageFromInput() {
+                        let desiredPage = parseInt($pageInput.val(), 10);
+                        
+                        // 入力値のバリデーション
+                        if (isNaN(desiredPage) || desiredPage < 1 || desiredPage > TOTAL_PAGES) {
+                            alert(`ページ番号は1から${TOTAL_PAGES}の間で入力してください。`);
+                            $pageInput.val($book.turn('page')); // 現在のページ番号に戻す
+                            return;
+                        }
+
+                        // turn.js のメソッドでページ遷移を実行
+                        $book.turn('page', desiredPage);
+                    }
+
+                    if ($jumpButton.length) {
+                        $jumpButton.on('click', goToPageFromInput);
+                        
+                        // Enterキーでのジャンプも有効にする
+                        $pageInput.on('keypress', function(e) {
+                            if (e.key === 'Enter') {
+                                goToPageFromInput();
+                            }
+                        });
+                    }
+
+                    // 初期ロード時に入力ボックスの最大値を設定
+                    $pageInput.attr('max', TOTAL_PAGES);
+                    $pageInput.val($book.turn('page') || 1); // 初期ページを1に設定
                 }
 
                 // Load the HTML4 version if there's not CSS transform
@@ -138,6 +177,12 @@
                     complete: loadApp
                 });
             </script>
+        <div class="page-jump-controls">
+            <label for="page-input">ページ:</label>
+            <input type="number" id="page-input" min="1" max="50" value="1">
+            <button id="jump-button">ジャンプ</button>
+            <span class="page-info">/ 50 ページ</span>
+        </div>
         </main>
         <!--mainここまで-->
 
