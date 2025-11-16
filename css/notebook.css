@@ -87,7 +87,7 @@ body{
 }
 
 #page-input {
-    width: 60px; /* 入力ボックスの幅 */
+    width: 40px; /* 入力ボックスの幅 */
     padding: 5px;
     text-align: center;
     border: 1px solid #ccc;

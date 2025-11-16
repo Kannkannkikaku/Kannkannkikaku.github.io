@@ -138,7 +138,7 @@
 
             <script type="text/javascript">
                 const ASPECT_RATIO = 1.536; // 922 / 600
-                const TOTAL_PAGES = 50; // ★総ページ数: 50ページを設定★
+                const TOTAL_PAGES = 80; // ★総ページ数: 50ページを設定★
 
                 // 現在のウィンドウ幅に基づいて、本の新しいサイズ（ピクセル値）を計算する関数
                 function calculateBookSize() {
@@ -252,9 +252,9 @@
             </script>
         <div class="page-jump-controls">
             <label for="page-input">ページ:</label>
-            <input type="number" id="page-input" min="1" max="50" value="1">
+            <input type="number" id="page-input" min="1" max="80" value="1">
+            <span class="page-info">/ 80 ページ</span>
             <button id="jump-button">ジャンプ</button>
-            <span class="page-info">/ 50 ページ</span>
         </div>
         </main>
         <!--mainここまで-->
