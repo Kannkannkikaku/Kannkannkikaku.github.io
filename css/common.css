@@ -3,6 +3,11 @@ body {
   margin: 0;
   background-color: #f8f8f8;
   color: #555;
+  background-image: url("../images/背景.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 /* ヘッダー */
@@ -365,6 +370,10 @@ img.main-image {
     font-size: 0.8rem;
     color: #999;
     margin-top: 5px;
+}
+
+.text{
+  text-align: center;
 }
 
 
